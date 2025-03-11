@@ -20,7 +20,7 @@
 # production
 /build
 
-# misc
+# misc.gitignore
 .DS_Store
 *.pem
 
