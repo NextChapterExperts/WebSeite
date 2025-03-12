@@ -26,13 +26,13 @@ const BlogList: FC<BlogListProps> = ({ posts }) => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.2 }}
                     >
-                        <h2 className="text-2xl font-bold">
-                            <Link href={`/blog/${post.slug}`} className="text-blue-600 hover:underline">
+                        <h2>
+                            <Link href={`/blog/${post.slug}`} className="text-xl font-bold">
                                 {post.title} - {post.date}
                             </Link>
                         </h2>
-                        <Link href={`/blog/${post.slug}`} className="text-blue-600 hover:underline mt-2 inline-block">
-                            Weiterlesen →
+                        <Link href={`/blog/${post.slug}`} className="inline-block mt-4 bg-gray-900 text-white px-4 py-2 rounded-lg">
+                            Weiterlesen
                         </Link>
                     </motion.div>
                 ))}
