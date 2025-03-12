@@ -2,6 +2,8 @@ import { promises as fs } from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -32,9 +34,9 @@ export default async function BlogPost({ params }: Props) {
         <h1 className="text-4xl font-bold mb-4">
         {String(data?.title || slug)}
         </h1>
-        <article className="prose">
-        <pre className="whitespace-pre-wrap">{content}</pre> {/* 🟢 Raw Markdown anzeigen */}
-        </article>
+        <article className="prose max-w-none">
+                    <ReactMarkdown rehypePlugins={[rehypeRaw]}>{content}</ReactMarkdown> {/* 🟢 Markdown zu HTML */}
+                </article>
         </main>
     );
 }
