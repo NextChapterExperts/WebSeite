@@ -6,9 +6,6 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm"; // ✅ Fügt Listen & Tabellen-Unterstützung hinzu
 import rehypeRaw from "rehype-raw"; // ✅ Erlaubt HTML im Markdown
 
-module.exports = {
-    plugins: [require("@tailwindcss/typography")],
-  };
 
 type Props = {
     params: Promise<{ slug: string }>;
