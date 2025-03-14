@@ -1,3 +1,4 @@
+branch dev
 ## Auschecken: 
 
 * git clone https://github.com/NextChapterExperts/WebSeite.git
@@ -10,8 +11,6 @@ Erstellt den node_modules ordner
 ```bash
 npm install 
 ```
-
-## Run 
 
 ```bash
 npm run dev
