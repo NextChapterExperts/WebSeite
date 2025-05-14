@@ -1,0 +1,9 @@
+npm run dev	Startet lokalen Dev-Server
+npm run dev:clean	Löscht .next & Cache → startet sauberen Dev
+npm run build	Baut Next.js
+npm run build:clean	Löscht Cache & .next → baut komplett neu
+npm run export	Exportiert statische Seiten (/out)
+npm run export:clean	Clean → Build → Export
+npm run clean	Löscht .next und .cache (auch Turbopack/webpack)
+npm run analyze	Optional: Visualisiere Bundle (nur mit next-bundle-analyzer)
+npm run lint	Lintet deinen Code

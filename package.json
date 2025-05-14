@@ -3,10 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
+    "dev:clean": "npm run clean && npm run dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build:clean": "npm run clean && next build",
+    "export": "next export",
+    "export:clean": "npm run clean && next build && next export",
+    "clean": "rm -rf .next node_modules/.cache",
+    "analyze": "ANALYZE=true next build",
+    "lint": "next lint",
+    "rebuild": "npm run clean && npm run build"
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.0",
@@ -15,9 +21,10 @@
     "framer-motion": "^12.5.0",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
+    "mermaid": "^11.6.0",
     "next": "^15.2.1",
     "next-mdx-remote": "^5.0.0",
-    "nodemailer": "^6.10.0",
+    "nodemailer": "^6.10.1",
     "path": "^0.12.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
