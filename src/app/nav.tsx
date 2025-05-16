@@ -53,13 +53,13 @@ export default function Nav() {
             </Link>
           </li>
           <li>
-            <Link href="/leistungen" className="block py-2 md:py-0 hover:underline" onClick={() => setIsMenuOpen(false)}>
-              Leistungen
+            <Link href="/portfolio" className="block py-2 md:py-0 hover:underline" onClick={() => setIsMenuOpen(false)}>
+             Mein Portfolio
             </Link>
           </li>
           <li>
-            <Link href="/team" className="block py-2 md:py-0 hover:underline" onClick={() => setIsMenuOpen(false)}>
-              Team
+            <Link href="/knowhow" className="block py-2 md:py-0 hover:underline" onClick={() => setIsMenuOpen(false)}>
+              Mein Know-how
             </Link>
           </li>
           <li>
@@ -67,11 +67,7 @@ export default function Nav() {
               Blogs
             </Link>
           </li>
-          <li>
-            <Link href="/guide" className="block py-2 md:py-0 hover:underline" onClick={() => setIsMenuOpen(false)}>
-              Guide
-            </Link>
-          </li>
+          
           <li>
             <Link href="/contact" className="block py-2 md:py-0 hover:underline" onClick={() => setIsMenuOpen(false)}>
               Kontakt

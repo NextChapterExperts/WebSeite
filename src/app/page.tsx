@@ -65,7 +65,7 @@ export default function Home() {
               <h3 className="text-xl font-bold mb-2">Wie ich Sie unterstützen kann</h3>
               <p className="text-sm mb-4">Coaching, Prototyping & Wissensaufbau für SAP BTP, Integration & AI</p>
               <a
-                href="/leistungen"
+                href="/portfolio"
                 className="inline-block bg-gray-900 text-gray-100 py-2 px-4 rounded-md"
               >
                 Mehr erfahren
@@ -81,7 +81,7 @@ export default function Home() {
               <h3 className="text-xl font-bold mb-2">Über mich & Netzwerk</h3>
               <p className="text-sm mb-4">Direkt mit mir starten. Bei Spezialthemen greife ich auf mein Expertennetzwerk zurück.</p>
               <a
-                href="/team"
+                href="/knowhow"
                 className="inline-block bg-gray-900 text-gray-100 py-2 px-4 rounded-md"
               >
                 Mehr erfahren
