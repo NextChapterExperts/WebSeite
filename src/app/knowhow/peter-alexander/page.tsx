@@ -39,7 +39,7 @@ export default function CurriculumPeter() {
         <section>
           <h2 className="text-3xl font-bold mb-4">Integration Services – Expertise & Erfahrung</h2>
           <p className="mb-4 text-gray-700">
-            Langjährige Erfahrung in SAP PI/PO, Integration Suite und Integrationsarchitekturen. Fokus auf ISA-M, AEM und DAAM sowie Migrationen und DevOps-Prozesse.
+            Langjährige Erfahrung in SAP PI/PO, Integration Suite und Integrationsarchitekturen.
           </p>
           <p className="text-gray-800 mb-2">
   Ich habe unter anderem:
