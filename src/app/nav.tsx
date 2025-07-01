@@ -62,11 +62,15 @@ export default function Nav() {
               Mein Know-how
             </Link>
           </li>
+
+          {/*
           <li>
             <Link href="/blog" className="block py-2 md:py-0 hover:underline" onClick={() => setIsMenuOpen(false)}>
               Blogs
             </Link>
+            
           </li>
+          */}  
           
           <li>
             <Link href="/contact" className="block py-2 md:py-0 hover:underline" onClick={() => setIsMenuOpen(false)}>
