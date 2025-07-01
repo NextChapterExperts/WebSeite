@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 
-
-
 export default function TeamPage() {
     const teamMembers = [
         {
@@ -12,8 +10,9 @@ export default function TeamPage() {
             image: "/team/peter.jpg",
             bio: "Erfahrener SAP Consultant & Architekt mit Fokus auf BTP, Integration und AI.",
             linkedin: "https://linkedin.com/in/peterbeispiel",
+            curriculum: "/knowhow/peter-alexander",
         },
-        // Weitere Experten können flexibel ergänzt werden, sobald vorhanden
+        // Weitere Experten können flexibel ergänzt werden
     ];
 
     return (
@@ -40,20 +39,26 @@ export default function TeamPage() {
                             <h3 className="text-xl font-semibold">{member.name}</h3>
                             <p className="text-gray-600">{member.position}</p>
                             <p className="mt-2 text-gray-500">{member.bio}</p>
-                            <a
-                                href={member.linkedin}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="mt-4 inline-block text-blue-600 hover:underline"
-                            >
-                                LinkedIn-Profil
-                            </a>
+                            <div className="mt-4 flex justify-center space-x-4">
+                                <a
+                                    href={member.linkedin}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-blue-600 hover:underline"
+                                >
+                                    LinkedIn-Profil
+                                </a>
+                                <a
+                                    href={member.curriculum}
+                                    className="text-blue-600 hover:underline"
+                                >
+                                    Curriculum
+                                </a>
+                            </div>
                         </div>
                     ))}
                 </div>
             </section>
-
-            
         </div>
     );
 }

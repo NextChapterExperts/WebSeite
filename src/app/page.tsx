@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+
 
 
 import { motion } from "framer-motion";
@@ -73,7 +73,7 @@ export default function Home() {
                 className="inline-block bg-gray-900 text-gray-100 py-2 px-4 rounded-md"
               >
                 Mehr erfahren
-              </Link>
+              </a>
             </motion.div>
 
             {/* Box 2 - Über mich & Netzwerk */}
@@ -91,7 +91,7 @@ export default function Home() {
                 className="inline-block bg-gray-900 text-gray-100 py-2 px-4 rounded-md"
               >
                 Mehr erfahren
-              </Link>
+              </a>
             </motion.div>
           </div>
         </motion.div>
