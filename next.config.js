@@ -5,7 +5,7 @@ const nextConfig = withMDX({
   reactStrictMode: true,
   images: { unoptimized: true },
   pageExtensions: ["ts", "tsx", "md", "mdx"],
-  metadataBase: "https://localhost",
+
 
 });
 

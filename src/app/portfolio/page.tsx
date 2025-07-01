@@ -67,7 +67,7 @@ export default function Leistungen() {
     <div className="min-h-screen bg-gray-100 text-gray-900">
       {/* Hero-Bereich */}
       <header className="bg-gray-900 text-white py-16 text-center">
-        <h1 className="text-4xl font-bold">Wissen das wirkt</h1>
+        <h1 className="text-4xl font-bold">Wissen, das wirkt</h1>
         <p className="mt-4 text-lg">
           Lernen Sie von Experten: Wissenstransfer & Prototyping für SAP BTP, Integration & AI – individuell, praxisnah und flexibel einsetzbar..
         </p>
@@ -87,12 +87,16 @@ export default function Leistungen() {
             >
               <h3 className="text-xl font-bold">{service.title}</h3>
               <p className="mt-2 text-sm">{service.description}</p>
+
+              {/*
               <a
                 href={service.link}
                 className="inline-block mt-4 bg-gray-900 text-white px-4 py-2 rounded-lg"
               >
                 Mehr erfahren
               </a>
+              */}
+
             </motion.div>
           ))}
         </div>
@@ -112,12 +116,15 @@ export default function Leistungen() {
             >
               <h3 className="text-xl font-bold">{service.title}</h3>
               <p className="mt-2 text-sm">{service.description}</p>
+
+              {/*
               <a
                 href={service.link}
                 className="inline-block mt-4 bg-gray-900 text-white px-4 py-2 rounded-lg"
               >
                 Mehr erfahren
               </a>
+              */}
             </motion.div>
           ))}
         </div>
@@ -137,12 +144,16 @@ export default function Leistungen() {
             >
               <h3 className="text-xl font-bold">{service.title}</h3>
               <p className="mt-2 text-sm">{service.description}</p>
+
+              {/*
               <a
                 href={service.link}
                 className="inline-block mt-4 bg-gray-900 text-white px-4 py-2 rounded-lg"
               >
                 Mehr erfahren
               </a>
+      
+              */}
             </motion.div>
           ))}
         </div>
