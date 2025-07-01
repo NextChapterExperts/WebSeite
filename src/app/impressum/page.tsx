@@ -28,7 +28,7 @@ export default function ImpressumPage() {
 
                     <h2 className="text-2xl font-semibold mt-6 mb-2">Umsatzsteuer-ID</h2>
                     <p>In Arbeit</p>
-                    
+                
 
                     <h2 className="text-2xl font-semibold mt-6 mb-2">Hinweis zum Netzwerk „Next Chapter Experts“</h2>
                     <p>
