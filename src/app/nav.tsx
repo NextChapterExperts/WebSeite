@@ -58,8 +58,8 @@ export default function Nav() {
             </Link>
           </li>
           <li>
-            <Link href="/knowhow" className="block py-2 md:py-0 hover:underline" onClick={() => setIsMenuOpen(false)}>
-              Mein Know-how
+            <Link href="/team" className="block py-2 md:py-0 hover:underline" onClick={() => setIsMenuOpen(false)}>
+              Team
             </Link>
           </li>
 

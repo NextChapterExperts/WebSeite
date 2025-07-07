@@ -86,7 +86,7 @@ export default function Home() {
               <p className="text-sm mb-4">Direkt mit mir starten. Bei Spezialthemen greife ich auf mein Expertennetzwerk zurück.</p>
 
               <a
-                href="/knowhow"
+                href="/team"
 
                 className="inline-block bg-gray-900 text-gray-100 py-2 px-4 rounded-md"
               >

@@ -5,7 +5,7 @@ export default function CurriculumPeter() {
     <div className="min-h-screen bg-gray-100 text-gray-900">
       {/* Hero-Bereich */}
       <header className="bg-gray-900 text-white py-16 text-center px-4">
-        <h1 className="text-4xl font-bold mb-4">Curriculum – Peter Alexander</h1>
+        <h1 className="text-4xl font-bold mb-4">Mein SAP Curriculum – Peter Alexander</h1>
         <p className="max-w-3xl mx-auto text-lg">
         16 Jahre SAP Erfahrung. Freelancer und Betreiber von NextChapterExperts.</p>
         <p>SAP BTP | Integration | AI
