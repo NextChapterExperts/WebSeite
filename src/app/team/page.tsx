@@ -8,27 +8,20 @@ export default function TeamPage() {
     {
       name: "Peter Alexander",
       position: "Gründer & SAP Experte",
-      image: "/team/peter.jpg",
+      image: "/team/3S3A4467.jpg",
       bio: "Erfahrener SAP Consultant & Architekt mit Fokus auf BTP, Integration und AI.",
       linkedin: "https://www.linkedin.com/in/peter-alexander-27bb701a",
       curriculum: "/team/peter-alexander",
     },
-    {
-      name: "Platzhalter 1",
-      position: "SAP Spezialist",
-      image: "/team/placeholder.jpg",
-      bio: "Beschreibung für Platzhalter 1.",
-      linkedin: "#",
-      curriculum: "#",
-    },
-    {
-      name: "Platzhalter 2",
-      position: "Integration Experte",
-      image: "/team/placeholder.jpg",
-      bio: "Beschreibung für Platzhalter 2.",
-      linkedin: "#",
-      curriculum: "#",
-    },
+   {
+  name: "Komm bald!",
+  position: "Demnächst hier",
+  image: "/team/coming-soon.jpg",
+  bio: "Wir stellen unser wachsendes Expertennetzwerk in Kürze vor.",
+  linkedin: "#",
+  curriculum: "#",
+},
+
   ];
 
   return (
@@ -50,13 +43,14 @@ export default function TeamPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
             >
-              <Image
-                src={member.image}
-                alt={member.name}
-                width={128}
-                height={128}
-                className="w-32 h-32 mx-auto rounded-full mb-4"
-              />
+            <Image
+              src={member.image}
+              alt={member.name}
+              width={200}
+              height={250}
+              className="mx-auto rounded-lg mb-4 object-cover"
+            />
+
               <h3 className="text-xl font-semibold">{member.name}</h3>
               <p className="text-gray-600">{member.position}</p>
               <p className="mt-2 text-gray-500">{member.bio}</p>
