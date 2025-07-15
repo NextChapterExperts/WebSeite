@@ -54,7 +54,7 @@ export default function Nav() {
           </li>
           <li>
             <Link href="/portfolio" className="block py-2 md:py-0 hover:underline" onClick={() => setIsMenuOpen(false)}>
-             Mein Portfolio
+           Portfolio
             </Link>
           </li>
           <li>
