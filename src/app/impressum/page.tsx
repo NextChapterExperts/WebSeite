@@ -22,7 +22,7 @@ export default function ImpressumPage() {
 
                     <h2 className="text-2xl font-semibold mt-6 mb-2">Kontakt</h2>
                     <p>
-                        Telefon: +49 (0) 123 456789<br />
+                        Telefon: +49 (0) 151 2558 0259<br />
                         E-Mail: kontakt@nextchapterexperts.com
                     </p>
 
