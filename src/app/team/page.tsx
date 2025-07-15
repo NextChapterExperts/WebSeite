@@ -17,7 +17,7 @@ export default function TeamPage() {
   name: "Komm bald!",
   position: "Demnächst hier",
   image: "/team/coming-soon.jpg",
-  bio: "Wir stellen unser wachsendes Expertennetzwerk in Kürze vor.",
+  bio: "Ich stelle das wachsende Expertennetzwerk in Kürze vor.",
   linkedin: "#",
   curriculum: "#",
 },
@@ -67,7 +67,7 @@ export default function TeamPage() {
                   href={member.curriculum}
                   className="text-blue-600 hover:underline"
                 >
-                  Curriculum
+                  Mein SAP Curriculum
                 </a>
               </div>
             </motion.div>
