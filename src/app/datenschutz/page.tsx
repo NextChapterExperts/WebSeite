@@ -35,6 +35,33 @@ export default function DatenschutzPage() {
                         und Art. 6 Abs. 1 lit. f (berechtigtes Interesse an der Bereitstellung einer funktionalen Webseite und Kommunikation).
                     </p>
 
+                    <h2 className="text-2xl font-semibold mt-6 mb-2">Kontaktformular</h2>
+                    <p>
+                        Wenn Sie mir über das Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Formular inklusive der von Ihnen dort angegebenen Kontaktdaten 
+                        zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei mir gespeichert. 
+                        Diese Daten gebe ich nicht ohne Ihre Einwilligung weiter.
+                    </p>
+
+                    <h2 className="text-2xl font-semibold mt-6 mb-2">E-Mail-Kontakt</h2>
+                    <p>
+                        Wenn Sie mir per E-Mail Anfragen zukommen lassen, werden Ihre Angaben inklusive der von Ihnen angegebenen Kontaktdaten 
+                        zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei mir gespeichert. 
+                        Diese Daten gebe ich nicht ohne Ihre Einwilligung weiter.
+                    </p>
+
+                    <h2 className="text-2xl font-semibold mt-6 mb-2">Server-Log-Dateien</h2>
+                    <p>
+                        Beim Besuch dieser Website werden automatisch Informationen in sogenannten Server-Log-Dateien gespeichert, die Ihr Browser automatisch übermittelt. 
+                        Dies sind z. B. Browsertyp, Browserversion, Betriebssystem, Referrer-URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage und IP-Adresse. 
+                        Diese Daten sind nicht bestimmten Personen zuordenbar und werden nicht mit anderen Datenquellen zusammengeführt.
+                    </p>
+
+                    <h2 className="text-2xl font-semibold mt-6 mb-2">Auftragsverarbeiter</h2>
+                    <p>
+                        Ich nutze Hosting-Dienstleistungen der Firma IONOS SE (Elgendorfer Str. 57, 56410 Montabaur, Deutschland) zur Bereitstellung und zum Betrieb dieser Website. 
+                        Es wurde ein Vertrag zur Auftragsverarbeitung gemäß Art. 28 DSGVO abgeschlossen.
+                    </p>
+
                     <h2 className="text-2xl font-semibold mt-6 mb-2">Ihre Rechte</h2>
                     <p>
                         Sie haben jederzeit das Recht auf Auskunft, Berichtigung, Löschung oder Einschränkung der Verarbeitung Ihrer Daten sowie ein Widerspruchsrecht 
@@ -54,7 +81,7 @@ export default function DatenschutzPage() {
 
                     <h2 className="text-2xl font-semibold mt-6 mb-2">Änderung dieser Datenschutzerklärung</h2>
                     <p>
-                        Ich behalte mir vor, diese Datenschutzerklärung bei Bedarf anzupassen, um sie an aktuelle rechtliche Anforderungen oder Änderungen meiner Leistungen anzupassen.
+                        Ich behalte mir vor, diese Datenschutzerklärung bei Bedarf anzupassen, um sie an aktuelle rechtliche Anforderungen oder Änderungen meiner Leistungen anzugleichen.
                     </p>
                 </div>
             </section>
