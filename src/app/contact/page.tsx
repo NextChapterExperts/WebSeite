@@ -38,7 +38,7 @@ export default function ContactPage() {
             </p>
 
             <a
-              href={`mailto:kontakt@nextchapterexperts.com?subject=Kontaktanfrage%20über%20die%20Webseite&body=Sehr%20geehrter%20Herr%20Alexander,%0A%0AIch%20möchte%20Ihnen%20gern%20eine%20Nachricht%20zukommen%20lassen.%0A%0AMit%20freundlichen%20Grüßen,%0A`}
+              href={`mailto:kontakt@nextchapterexperts.de?subject=Kontaktanfrage%20über%20die%20Webseite&body=Sehr%20geehrter%20Herr%20Alexander,%0A%0AIch%20möchte%20Ihnen%20gern%20eine%20Nachricht%20zukommen%20lassen.%0A%0AMit%20freundlichen%20Grüßen,%0A`}
               className="inline-block bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition text-center"
             >
               Jetzt E-Mail schreiben
@@ -46,7 +46,7 @@ export default function ContactPage() {
 
             <p className="text-sm text-gray-500 mt-2">
               Falls der Button nicht funktionieren sollte, senden Sie bitte eine E-Mail an{" "}
-              <span className="underline">kontakt@nextchapterexperts.com</span>.
+              <span className="underline">kontakt@nextchapterexperts.de</span>.
             </p>
           </div>
         </div>
