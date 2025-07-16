@@ -65,7 +65,7 @@ export default function Home() {
               className="p-4 bg-gray-100 text-gray-900 rounded-lg shadow-md mb-6 md:mb-0 w-full md:w-1/2"
             >
               <h3 className="text-xl font-bold mb-2">Wie ich Sie unterstützen kann</h3>
-              <p className="text-sm mb-4">Coaching, Prototyping & Wissensaufbau für SAP BTP, Integration & AI</p>
+              <p className="text-sm mb-4">Coaching, Prototyping & Wissensaufbau für SAP BTP, Integration & AI.</p>
 
               <a
                 href="/portfolio"

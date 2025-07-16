@@ -6,7 +6,7 @@ export default function ImpressumPage() {
             <header className="bg-gray-900 text-white py-16 text-center">
                 <h1 className="text-4xl font-bold">Impressum</h1>
                 <p className="mt-4 text-lg">
-                    Rechtliche Angaben & Hinweise zum Netzwerk Next Chapter Experts.
+                   Impressum und Kontakt.
                 </p>
             </header>
 

@@ -10,7 +10,7 @@ export default function ContactPage() {
       <header className="bg-gray-900 text-white py-16 text-center">
         <h1 className="text-4xl font-bold">Kontakt</h1>
         <p className="mt-4 text-lg">
-          Treten Sie mit mir in Kontakt – ich freue mich auf Ihre Nachricht!
+          Treten Sie mit mir in Kontakt. Ich freue mich auf Ihre Nachricht.
         </p>
       </header>
 
@@ -33,7 +33,7 @@ export default function ContactPage() {
             <h2 className="text-2xl font-semibold">Peter Alexander</h2>
             <p className="text-gray-700">
               Freiberuflicher SAP Consultant und Gründer von Next Chapter Experts.
-              Schreiben Sie mir gerne direkt eine E-Mail – ich antworte Ihnen
+              Schreiben Sie mir gerne direkt eine E-Mail. Ich antworte Ihnen
               schnell und persönlich.
             </p>
 
@@ -45,7 +45,7 @@ export default function ContactPage() {
             </a>
 
             <p className="text-sm text-gray-500 mt-2">
-              Falls der Button nicht funktioniert, senden Sie bitte eine E-Mail an{" "}
+              Falls der Button nicht funktionieren sollte, senden Sie bitte eine E-Mail an{" "}
               <span className="underline">kontakt@nextchapterexperts.com</span>.
             </p>
           </div>

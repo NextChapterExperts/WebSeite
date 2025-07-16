@@ -14,7 +14,7 @@ export default function TeamPage() {
       curriculum: "/team/peter-alexander",
     },
    {
-  name: "Komm bald!",
+  name: "Kommt bald!",
   position: "Demnächst hier",
   image: "/team/coming-soon.jpg",
   bio: "Ich stelle das wachsende Expertennetzwerk in Kürze vor.",
@@ -27,7 +27,7 @@ export default function TeamPage() {
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900">
       <header className="bg-gray-900 text-white py-16 text-center">
-        <h1 className="text-4xl font-bold">Next Chapter Experts</h1>
+        <h1 className="text-4xl font-bold">Team</h1>
         <p className="mt-4 text-lg">
           Ihr Netzwerk für SAP BTP, Integration & AI – aktuell geführt von Peter Alexander. Mit Zugriff auf ein flexibles Expertennetzwerk.
         </p>
@@ -67,7 +67,7 @@ export default function TeamPage() {
                   href={member.curriculum}
                   className="text-blue-600 hover:underline"
                 >
-                  Mein SAP Curriculum
+                  Mein SAP-Curriculum
                 </a>
               </div>
             </motion.div>
