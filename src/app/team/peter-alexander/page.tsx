@@ -20,7 +20,7 @@ export default function CurriculumPeter() {
           <p className="mb-4 text-gray-700">
             Über 10 Jahre Erfahrung in der SAP Business Technology Platform (SAP BTP). Ich unterstütze Unternehmen mit praxisorientierten Trainings, Coaching-Programmen und Prototyping-Lösungen.
           </p>
-         <p className="text-gray-800 mb-2">Meine Arbeit zeichnet sich durch praxisorientierte, skalierbare Lösungen und nachhaltigen Know-how-Transfer aus. Dazu gehören unter anderem:</p>
+         <p className="text-gray-800 mb-2">Meine Arbeit zeichnete sich durch praxisorientierte, skalierbare Lösungen und nachhaltigen Know-how-Transfer aus. Dazu gehörten unter anderem:</p>
         <ul className="list-disc ml-6 text-gray-800 space-y-2">
          <li>Konzeption und Durchführung offizieller SAP-Trainings inklusive Zertifizierungen.</li>
   <li>Entwicklung und Umsetzung individueller Coaching-Programme für Großunternehmen.</li>
@@ -30,7 +30,7 @@ export default function CurriculumPeter() {
   <li>Entwicklung von Mikroservices mit dem SAP Cloud Application Programming Model (CAP) und Java.</li>
   <li>Entwicklung von User-Interfaces im Rahmen der Side-by-Side-Erweiterungsstrategie.</li>
   <li>Konzeption und Umsetzung von DevOps-Ansätzen für SAP-BTP-Projekte.</li>
-  <li>Unterstützung von SAP-BTP-Projekten als Trainer, Coach und Architekturberater.</li>
+  <li>Unterstützung von SAP BTP-Projekten als Trainer, Coach und Architekturberater.</li>
         </ul>
 
         </section>
@@ -41,15 +41,15 @@ export default function CurriculumPeter() {
           <p className="mb-4 text-gray-700">
             Langjährige Praxis in SAP PI/PO, der SAP Integration Suite und der Entwicklung robuster Integrationsarchitekturen.
           </p>
-          <p className="text-gray-800 mb-2">Ich kombiniere Technologie-Expertise mit methodischer Beratungskompetenz. Meine Arbeitsschwerpunkte umfassen:</p>
+          <p className="text-gray-800 mb-2">Ich kombinierte Technologie-Expertise mit methodischer Beratungskompetenz. Meine Arbeitsschwerpunkte umfassten:</p>
           <ul className="list-disc ml-6 text-gray-800 space-y-2">
-            <li>Konzeption und Durchführung offizieller SAP Integration Suite Trainings inklusive Zertifizierungen.</li>
-  <li>Konzeption und Durchführung offizieller SAP PI/PO Trainings inklusive Zertifizierungen.</li>
+            <li>Konzeption und Durchführung offizieller SAP Integration Suite-Trainings inklusive Zertifizierungen.</li>
+  <li>Konzeption und Durchführung offizieller SAP PI/PO-Trainings inklusive Zertifizierungen.</li>
   <li>Entwicklung und Umsetzung von Migrationskonzepten von PI/PO zur Integration Suite.</li>
   <li>Entwicklung praxisorientierter Coachings für zahlreiche DAX-Unternehmen, inklusive maßgeschneiderter Trainingsunterlagen zur SAP Integration Suite.</li>
   <li>Beratung und Aufbau von Integrationsarchitekturen nach dem Integration Solution Advisory Methodology (ISA-M)-Framework.</li>
-  <li>Aufbau von CI/CD-Pipelines für Integration Suite-Artefakte mit der SAP Business Technology Platform (SAP BTP) CLI und Services.</li>
-  <li>Begleitung erfolgreicher Migrationen von SAP Process Integration / Process Orchestration (PI/PO) zur SAP Integration Suite.</li>
+  <li>Aufbau von CI/CD-Pipelines für Integration Suite-Artefakte mit der SAP Business Technology Platform (SAP BTP), CLI und Services.</li>
+
           </ul>
 
         </section>
@@ -65,7 +65,7 @@ export default function CurriculumPeter() {
              <li>Konzeption und Vermittlung praxisgerechter Einsatzszenarien für Large Language Models (LLMs).</li>
   <li>Aufbau lokaler LLM-Architekturen mit Retrieval-Augmented Generation (RAG) auf eigenen Servern oder in der deutschen Cloud (IONOS).</li>
   <li>Integration unterschiedlich großer und quantisierter Modelle in bestehende Architekturen.</li>
-  <li>Entwicklung von Agenten-Workflows mit Tools wie Camel, N8N, CrewAI und weiteren.</li>
+  <li>Entwicklung von Agenten-Workflows mit Tools wie Camel, N8N, CrewAI und anderen.</li>
   <li>Praxisorientiertes Prototyping entlang individueller Use Cases.</li>
           </ul>
         </section>
