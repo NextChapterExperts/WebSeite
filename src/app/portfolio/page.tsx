@@ -67,7 +67,7 @@ export default function Leistungen() {
     <div className="min-h-screen bg-gray-100 text-gray-900">
       {/* Hero-Bereich */}
       <header className="bg-gray-900 text-white py-16 text-center">
-        <h1 className="text-4xl font-bold">Wissen, das wirkt</h1>
+        <h1 className="text-4xl font-bold">Portfolio</h1>
         <p className="mt-4 text-lg">
           Lernen Sie von Experten: Wissenstransfer & Prototyping für SAP BTP, Integration & AI – individuell, praxisnah und flexibel einsetzbar.
         </p>

@@ -6,7 +6,7 @@ export default function ImpressumPage() {
             <header className="bg-gray-900 text-white py-16 text-center">
                 <h1 className="text-4xl font-bold">Impressum</h1>
                 <p className="mt-4 text-lg">
-                    Rechtliche Angaben & Hinweise zum Netzwerk Next Chapter Experts.
+                   Impressum und Kontakt.
                 </p>
             </header>
 
@@ -22,7 +22,7 @@ export default function ImpressumPage() {
 
                     <h2 className="text-2xl font-semibold mt-6 mb-2">Kontakt</h2>
                     <p>
-                        Telefon: +49 (0) 123 456789<br />
+                        Telefon: +49 (0) 151 2558 0259<br />
                         E-Mail: kontakt@nextchapterexperts.com
                     </p>
 
