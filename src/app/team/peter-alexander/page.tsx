@@ -4,12 +4,11 @@ export default function CurriculumPeter() {
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900">
       {/* Hero-Bereich */}
-      <header className="bg-gray-900 text-white py-16 text-center px-4">
-        <h1 className="text-4xl font-bold mb-4">Mein SAP-Curriculum – Peter Alexander</h1>
-        <p className="max-w-3xl mx-auto text-lg">
-          16 Jahre SAP-Erfahrung mit:
-        </p>
-        <p>SAP BTP | Integration | AI</p>
+      <header className="bg-gradient-to-r from-indigo-950 via-slate-900 to-teal-950 text-white py-16 text-center px-4">
+        <h1 className="text-4xl font-bold mb-2">Peter Alexander</h1>
+        <p className="text-lg font-medium">Industry Lecturer – Enterprise Software & Cloud Architecture</p>
+        <p className="text-lg">Former SAP Principal Education Consultant | Enterprise Architect</p>
+        <p className="max-w-3xl mx-auto text-gray-300 mt-4">SAP BTP | Integration | AI</p>
       </header>
 
       <main className="max-w-4xl mx-auto py-12 px-6 space-y-12">

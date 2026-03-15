@@ -2,8 +2,9 @@ import { promises as fs } from "fs";
 import path from "path";
 import matter from "gray-matter";
 import BlogList from "@/app/blog/BlogList";
+import { pageMetadata } from "@/app/metadata";
 
-//const isStaticExport = process.env.NEXT_PUBLIC_STATIC_EXPORT === "true";
+export const metadata = pageMetadata.blog;
 
 export default async function BlogIndexPage() {
     const postsDirectory = path.join(process.cwd(), "src", "content", "blog");
@@ -26,7 +27,7 @@ export default async function BlogIndexPage() {
     return (
         <div className="min-h-screen bg-gray-100 text-gray-900">
             {/* Hero-Bereich */}
-            <header className="bg-gray-900 text-white py-16 text-center">
+            <header className="bg-gradient-to-r from-indigo-950 via-slate-900 to-teal-950 text-white py-16 text-center">
                 <h1 className="text-4xl font-bold">Wissen das wirkt</h1>
                 <p className="mt-4 text-lg">
                     Informieren Sie sich auf unserer Blog- und News-Plattform.

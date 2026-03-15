@@ -17,7 +17,7 @@ export default function TeamPage() {
 
     return (
         <div className="min-h-screen bg-gray-100 text-gray-900">
-            <header className="bg-gray-900 text-white py-16 text-center">
+            <header className="bg-gradient-to-r from-indigo-950 via-slate-900 to-teal-950 text-white py-16 text-center">
                 <h1 className="text-4xl font-bold">Next Chapter Experts</h1>
                 <p className="mt-4 text-lg">
                     Ihr Netzwerk für SAP BTP, Integration & AI – aktuell geführt von Peter Alexander. Mit Zugriff auf ein flexibles Expertennetzwerk.

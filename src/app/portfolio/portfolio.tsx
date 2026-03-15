@@ -66,7 +66,7 @@ export default function Leistungen() {
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900">
       {/* Hero-Bereich */}
-      <header className="bg-gray-900 text-white py-16 text-center">
+      <header className="bg-gradient-to-r from-indigo-950 via-slate-900 to-teal-950 text-white py-16 text-center">
         <h1 className="text-4xl font-bold">Wissen, das wirkt</h1>
         <p className="mt-4 text-lg">
           Lernen Sie von Experten: Wissenstransfer & Prototyping für SAP BTP, Integration & AI – individuell, praxisnah und flexibel einsetzbar..
@@ -91,7 +91,7 @@ export default function Leistungen() {
               {/*
               <a
                 href={service.link}
-                className="inline-block mt-4 bg-gray-900 text-white px-4 py-2 rounded-lg"
+                className="inline-block mt-4 bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-400 transition-colors"
               >
                 Mehr erfahren
               </a>
@@ -120,7 +120,7 @@ export default function Leistungen() {
               {/*
               <a
                 href={service.link}
-                className="inline-block mt-4 bg-gray-900 text-white px-4 py-2 rounded-lg"
+                className="inline-block mt-4 bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-400 transition-colors"
               >
                 Mehr erfahren
               </a>
@@ -148,7 +148,7 @@ export default function Leistungen() {
               {/*
               <a
                 href={service.link}
-                className="inline-block mt-4 bg-gray-900 text-white px-4 py-2 rounded-lg"
+                className="inline-block mt-4 bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-400 transition-colors"
               >
                 Mehr erfahren
               </a>

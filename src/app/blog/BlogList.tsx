@@ -31,7 +31,7 @@ const BlogList: FC<BlogListProps> = ({ posts }) => {
                                 {post.title} - {post.date}
                             </Link>
                         </h2>
-                        <Link href={`/blog/${post.slug}`} className="inline-block mt-4 bg-gray-900 text-white px-4 py-2 rounded-lg">
+                        <Link href={`/blog/${post.slug}`} className="inline-block mt-4 bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-400 transition-colors">
                             Weiterlesen
                         </Link>
                     </motion.div>

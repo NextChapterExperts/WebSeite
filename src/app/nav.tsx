@@ -44,7 +44,7 @@ export default function Nav() {
       <nav
         className={`${
           isMenuOpen ? "block" : "hidden"
-        } md:block absolute md:static top-16 left-0 w-full md:w-auto bg-gray-900 md:bg-transparent z-10`}
+        } md:block absolute md:static top-16 left-0 w-full md:w-auto bg-slate-900 md:bg-transparent z-10`}
       >
         <ul className="flex flex-col md:flex-row md:space-x-4 p-4 md:p-0">
           <li>
@@ -59,22 +59,27 @@ export default function Nav() {
           </li>
           <li>
             <Link href="/team" className="block py-2 md:py-0 hover:underline" onClick={() => setIsMenuOpen(false)}>
-              Team
+              Über mich
             </Link>
           </li>
-
-          {/*
+          <li>
+            <Link href="/lectures" className="block py-2 md:py-0 hover:underline" onClick={() => setIsMenuOpen(false)}>
+              Lectures
+            </Link>
+          </li>
           <li>
             <Link href="/blog" className="block py-2 md:py-0 hover:underline" onClick={() => setIsMenuOpen(false)}>
-              Blogs
+              Blog
             </Link>
-            
           </li>
-          */}  
-          
           <li>
             <Link href="/contact" className="block py-2 md:py-0 hover:underline" onClick={() => setIsMenuOpen(false)}>
               Kontakt
+            </Link>
+          </li>
+          <li>
+            <Link href="/impressum" className="block py-2 md:py-0 hover:underline" onClick={() => setIsMenuOpen(false)}>
+              Impressum
             </Link>
           </li>
         </ul>
