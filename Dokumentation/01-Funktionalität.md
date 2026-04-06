@@ -18,7 +18,7 @@
 
 ## Markdown-Blogbeiträge:
 
-    Inhalte der Blogbeiträge werden aus Markdown-Dateien (erster-blogpost.md, nextjs-tipps.md) generiert.
+    Inhalte der Blogbeiträge werden aus Markdown-Dateien unter src/content/blog/de/ und …/en/ generiert.
 
     Verwendet gray-matter, um Frontmatter (Metadaten) aus Markdown-Dateien zu extrahieren.
 

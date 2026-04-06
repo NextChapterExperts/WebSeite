@@ -2,8 +2,7 @@ branch dev
 ## Auschecken: 
 
 * git clone https://github.com/NextChapterExperts/WebSeite.git
-* user:NextChapterExperts
-* passw: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
+* Authentifizierung: persönliches GitHub-Token (PAT) oder SSH — niemals Token in die Repo-Doku committen.
 
 ## Install:
 Erstellt den node_modules ordner

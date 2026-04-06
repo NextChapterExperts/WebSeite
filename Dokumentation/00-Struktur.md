@@ -46,7 +46,7 @@
 
         #### content/blog – Inhalte (Markdown-Dateien) der Blogbeiträge.
 
-            erster-blogpost.md, nextjs-tipps.md.
+            Unterordner de/ und en/ (je Locale eine .md-Datei pro Slug), z. B. nextcloud-lernplattform.md.
 
     ### public – Öffentliche Assets wie Bilder (hero-min2.jpg) und Icons (file.svg, next.svg, window.svg).
 
