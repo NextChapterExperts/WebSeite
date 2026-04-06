@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import KontaktBild from "/public/3S3A4810.jpg";
 
 export default function ContactPage() {
   const t = useTranslations("Contact");
@@ -21,7 +20,7 @@ export default function ContactPage() {
         <div className="bg-white p-8 rounded-lg shadow-lg flex flex-col md:flex-row items-center gap-8">
           <div className="w-full md:w-1/2">
             <Image
-              src={KontaktBild}
+              src="/3S3A4810.jpg"
               alt="Peter Alexander"
               className="rounded-lg object-cover"
               width={600}

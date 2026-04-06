@@ -9,20 +9,20 @@ export default function Home() {
   const t = useTranslations("Home");
 
   return (
-    <div className="min-h-screen flex">
-      <div className="w-1/2 h-screen">
+    <div className="min-h-screen flex flex-col md:flex-row">
+      <div className="relative h-56 w-full shrink-0 sm:h-72 md:h-screen md:w-1/2">
         <Image
           src="/hero-min2.jpg"
           alt={t("heroAlt")}
           width={1920}
           height={1080}
-          className="w-full h-full object-cover object-top"
+          className="h-full w-full object-cover object-top"
           priority
         />
       </div>
-      <div className="w-1/2 h-screen flex flex-col justify-center px-6 md:px-12 bg-gradient-to-br from-indigo-950 via-slate-900 to-teal-950 text-gray-100">
-        <div className="w-full max-w-[600px] mx-auto">
-          <h2 className="text-4xl font-bold mb-4">{t("heroTitle")}</h2>
+      <div className="flex w-full flex-1 flex-col justify-start bg-gradient-to-br from-indigo-950 via-slate-900 to-teal-950 px-6 py-8 text-gray-100 md:w-1/2 md:min-h-screen md:justify-center md:px-12 md:py-12">
+        <div className="mx-auto w-full max-w-[600px]">
+          <h2 className="mb-4 text-3xl font-bold sm:text-4xl">{t("heroTitle")}</h2>
           <p className="text-lg mb-6">{t("heroLead")}</p>
           <div className="mb-8">
             <Link
