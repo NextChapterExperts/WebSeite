@@ -45,3 +45,4 @@ Ein besonderes Highlight war das SAP Meetup Chișinău, bei dem Studierende, Exp
 
 Dieses Event bestärkt mich in der Mission von Next Chapter Experts. Die Schnittstelle von SAP-Technologie und Künstlicher Intelligenz erfordert eine neue Denkweise: agil, datenzentriert und menschenorientiert.
 
+
