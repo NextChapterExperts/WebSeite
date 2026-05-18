@@ -14,6 +14,8 @@ export interface BlogPost {
   cover: string;
   isFallback?: boolean;
   sourceLocale?: string;
+  /** Nur Serien-Artikel: „Teil X von Y“ auf der Karte */
+  seriesPart?: { part: number; total: number };
 }
 
 interface BlogListProps {
@@ -42,6 +44,13 @@ const BlogList: FC<BlogListProps> = ({ posts }) => {
                 className="w-full h-44 object-cover"
               />
             </Link>
+          ) : null}
+          {post.seriesPart ? (
+            <p className="mb-2">
+              <span className="inline-flex rounded-full bg-teal-100 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wide text-teal-900">
+                {t("seriesPartBadge", { part: post.seriesPart.part, total: post.seriesPart.total })}
+              </span>
+            </p>
           ) : null}
           <h2>
             <Link href={`/blog/${post.slug}`} className="text-xl font-bold hover:text-teal-700">

@@ -7,7 +7,8 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { getAllBlogSlugs, resolveBlogPostFile } from "@/lib/blogContent";
+import { getAllBlogSlugs, getBlogSeriesNavigation, resolveBlogPostFile, SAP_BUSINESS_AI_SERIES_ID, countPostsInBlogSeries } from "@/lib/blogContent";
+import type { BlogSeriesNavigation } from "@/lib/blogContent";
 
 type Props = {
   params: Promise<{ slug: string; locale: string }>;
@@ -37,6 +38,55 @@ export async function generateMetadata({ params }: Props) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type MdProps = Record<string, any>;
 
+function BlogSeriesNavigationBar({
+  nav,
+  overview,
+  ariaLabel,
+  prevLabel,
+  nextLabel,
+  firstLabel,
+  lastLabel,
+}: {
+  nav: BlogSeriesNavigation;
+  overview: string;
+  ariaLabel: string;
+  prevLabel: string;
+  nextLabel: string;
+  firstLabel: string;
+  lastLabel: string;
+}) {
+  const linkClass =
+    "block rounded-lg border border-gray-200 bg-white p-3 text-sm shadow-sm transition-colors hover:border-teal-500 hover:bg-teal-50/80";
+
+  return (
+    <nav aria-label={ariaLabel} className="not-prose my-6 rounded-xl border border-teal-100 bg-teal-50/60 p-4">
+      <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-teal-900">{overview}</p>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <div className="min-h-[3.25rem]">
+          {nav.prev ? (
+            <Link href={`/blog/${nav.prev.slug}`} className={linkClass}>
+              <span className="font-medium text-teal-800">{prevLabel}</span>
+              <span className="mt-1 block font-semibold leading-snug text-gray-900">{nav.prev.title}</span>
+            </Link>
+          ) : (
+            <p className="rounded-lg border border-dashed border-gray-200 bg-white/80 px-3 py-2 text-sm text-gray-500">{firstLabel}</p>
+          )}
+        </div>
+        <div className="min-h-[3.25rem]">
+          {nav.next ? (
+            <Link href={`/blog/${nav.next.slug}`} className={`${linkClass} sm:text-right`}>
+              <span className="font-medium text-teal-800">{nextLabel}</span>
+              <span className="mt-1 block font-semibold leading-snug text-gray-900">{nav.next.title}</span>
+            </Link>
+          ) : (
+            <p className="rounded-lg border border-dashed border-gray-200 bg-white/80 px-3 py-2 text-sm text-gray-500 sm:text-right">{lastLabel}</p>
+          )}
+        </div>
+      </div>
+    </nav>
+  );
+}
+
 export default async function BlogPost({ params }: Props) {
   const { slug, locale } = await params;
   setRequestLocale(locale);
@@ -50,6 +100,30 @@ export default async function BlogPost({ params }: Props) {
   const fileContents = await fs.readFile(resolved.filePath, "utf8");
   const { data, content } = matter(fileContents);
 
+  const seriesId = data.series != null ? String(data.series) : null;
+  const seriesNav =
+    seriesId != null ? await getBlogSeriesNavigation(slug, locale, seriesId) : null;
+  const showSapBusinessAiDisclaimer = seriesId === SAP_BUSINESS_AI_SERIES_ID;
+
+  const excerptText = data.excerpt != null ? String(data.excerpt).trim() : "";
+  const dateText = String(data.date ?? "").trim();
+  const rawSeriesOrder = data.seriesOrder != null ? Number(data.seriesOrder) : NaN;
+  const seriesTotal =
+    seriesId != null && Number.isFinite(rawSeriesOrder)
+      ? await countPostsInBlogSeries(seriesId, locale)
+      : 0;
+  const showSeriesBadge =
+    Boolean(seriesId) && Number.isFinite(rawSeriesOrder) && seriesTotal > 0;
+
+  const seriesNavLabels = {
+    overview: t("seriesOverview"),
+    ariaLabel: t("seriesNavAria"),
+    prevLabel: t("seriesPrev"),
+    nextLabel: t("seriesNext"),
+    firstLabel: t("seriesFirst"),
+    lastLabel: t("seriesLast"),
+  };
+
   return (
     <main className="p-8 max-w-4xl mx-auto">
       <Link href="/blog" className="text-teal-600 hover:underline inline-block mb-4">
@@ -60,7 +134,32 @@ export default async function BlogPost({ params }: Props) {
           {t("articleFallback", { lang: resolved.sourceLocale.toUpperCase() })}
         </p>
       ) : null}
-      <h1 className="text-4xl font-bold mb-4">{String(data?.title || slug)}</h1>
+      <h1 className="text-4xl font-bold mb-4 tracking-tight text-gray-950">{String(data?.title || slug)}</h1>
+      <div className="not-prose mb-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-600">
+        {dateText ? (
+          <span>
+            <span className="sr-only">{t("articleDateLabel")}: </span>
+            {dateText}
+          </span>
+        ) : null}
+        {showSeriesBadge ? (
+          <span className="inline-flex items-center rounded-full bg-teal-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-teal-900">
+            {t("seriesPartBadge", { part: rawSeriesOrder, total: seriesTotal })}
+          </span>
+        ) : null}
+      </div>
+      {excerptText ? (
+        <p className="not-prose mb-8 border-l-4 border-teal-500 pl-5 text-lg leading-relaxed text-gray-700 sm:text-xl">
+          {excerptText}
+        </p>
+      ) : null}
+      {showSapBusinessAiDisclaimer ? (
+        <aside className="not-prose mb-8 rounded-xl border border-gray-200 bg-gray-50 p-5 text-sm leading-relaxed text-gray-800 shadow-sm">
+          <p className="font-semibold text-gray-900">{t("sapBusinessAiDisclaimerHeading")}</p>
+          <p className="mt-3 italic">{t("sapBusinessAiDisclaimerBody")}</p>
+        </aside>
+      ) : null}
+      {seriesNav ? <BlogSeriesNavigationBar nav={seriesNav} {...seriesNavLabels} /> : null}
       <article className="prose max-w-none">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
@@ -130,6 +229,12 @@ export default async function BlogPost({ params }: Props) {
           {content}
         </ReactMarkdown>
       </article>
+      {seriesNav ? <BlogSeriesNavigationBar nav={seriesNav} {...seriesNavLabels} /> : null}
+      {showSapBusinessAiDisclaimer ? (
+        <p className="not-prose mt-8 border-t border-gray-200 pt-6 text-sm italic leading-relaxed text-gray-600">
+          {t("sapBusinessAiDisclaimerFooter")}
+        </p>
+      ) : null}
     </main>
   );
 }
