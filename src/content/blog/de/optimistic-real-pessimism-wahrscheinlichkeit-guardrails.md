@@ -11,7 +11,7 @@ seriesOrder: 2
 
 Klassische IT-Systeme und traditionelles RPA (Robotic Process Automation) folgen einem unerbittlichen Gesetz: **Determinismus**. Wenn Eingabe $X$ reinkommt, folgt darauf exakt die Aktion $Y$. Wenn eine Postleitzahl fünfstellig sein muss, fängt ein klassisches Skript alles ab, was vierstellig ist. Es gibt kein Dazwischen, keine Nuancen, kein Raten.
 
-Bei Systemen, die auf Großen Sprachmodellen (LLMs) basieren, bricht diese Welt zusammen. KI-Automatisierung ist von Natur aus **probabilistisch** (stochastisch). Ein LLM berechnet Vektor-Wahrscheinlichkeiten. Es weiß nicht, was „wahr“ oder „falsch“ ist; es berechnet nur, welches Token als nächstes mit der höchsten Wahrscheinlichkeit auf die vorherigen folgt.
+Bei Systemen, die auf Großen Sprachmodellen (LLMs) basieren, bricht diese Welt zusammen. KI-Automatisierung ist von Natur aus **probabilistisch** (stochastisch). Ein LLM berechnet Vektor-Wahrscheinlichkeiten. Es weiß nicht, was „wahr“ oder „falsch“ ist; es berechnet nur, welches Wort mit der höchsten Wahrscheinlichkeit auf die vorherigen folgt.
 
 > _„Klassischer Code gehorcht. KI rät – extrem gut, aber sie rät.“_
 
@@ -50,38 +50,77 @@ Um absolute Zuverlässigkeit im Unternehmen zu garantieren, vertrauen wir der KI
 [Sichere API-Ausführung im ERP-System]
 ```
 
-### Die 4 Phasen der Absicherungs-Pipeline im Detail
+---
 
-#### Phase 1: Die Strukturierung (Agent 1)
+## Die Pipeline in der Praxis: Ein konkreter Durchlauf
 
-Der Prozess startet mit dem unstrukturierten Chaos der echten Welt – zum Beispiel einer ungefilterten Kunden-E-Mail. Agent 1 (ein schnelles, lokales Modell, das wir über _vLLM_ oder _Ollama_ auf unserem eigenen Blech betreiben) hat nur eine einzige Aufgabe: Er ignoriert die Tonalität und extrahiert die reinen Fakten in einen strikt definierten Datencontainer (JSON).
+Schauen wir uns an, wie dieses Kontrollsystem eine typische, unstrukturierte Service-E-Mail zerlegt, absichert und verarbeitet.
 
-#### Phase 2: Die logische Qualitätsprüfung (Agent 2)
+### Der unstrukturierte Input (Die Kunden-E-Mail)
 
-Um die „Betriebsblindheit“ der KI zu durchbrechen, schalten wir einen zweiten Agenten dazwischen. Dieser erhält _ausschließlich_ das JSON-Ergebnis von Agent 1. Seine Aufgabe ist die **Rückübersetzung**. Er formuliert aus den nackten JSON-Daten eine glasklare, präzise Zusammenfassung im Stile von: _„Kunde will Artikel X stornieren, da defekt. Fordert Erstattung auf IBAN Y.“_ Erkennt Agent 2 einen logischen Widerspruch (z. B. eine unvollständige IBAN oder ein unmögliches Bestelldatum), stoppt er den Prozess sofort.
+Ein Kunde schreibt aufgebracht an den Support:
 
-#### Phase 3: Der mathematische Türsteher (Der deterministische Code)
+> _„Hallo Support-Team, ich habe vor zwei Wochen (glaube es war der 04. Mai) drei Stück von euren Smart-Hubs (Art-Nr: 9942-X) für unser Büro bestellt. Gestern kam das Paket an, aber zwei davon sind total zerkratzt und das dritte Gehäuse ist komplett gesprungen. So können wir das nicht nutzen! Bitte schickt uns so schnell wie möglich Ersatz für die kaputten Geräte an unsere Firmenadresse. Die Bestellnummer müsste die DE-2026-8831 sein. Gruß, Markus Meier, Meier IT-Services.“_
 
-Bevor irgendein KI-Ergebnis ein produktives System berührt oder einem Menschen gezeigt wird, greift die klassische Software-Logik. Mithilfe von Frameworks wie **Pydantic** oder **Instructor** zwingen wir das System zu einer mathematischen Typ-Prüfung.
+### Phase 1: Die Strukturierung (Agent 1)
 
-Stimmt das Datumsformat? Sind alle Pflichtfelder belegt? Ist die Kundennummer rein numerisch? Wenn das JSON-Schema valide ist, geht es weiter. Wenn nicht, triggert das System einen internen, kontrollierten Loop: Es wirft das JSON zurück zu Agent 1 mit der harten Fehlermeldung: _„Feld 'Kundennummer' fehlt. Korrigiere den Output.“_ Der Agent korrigiert sich selbst – innerhalb sicherer Grenzen, ohne das Token-Budget zu sprengen.
+Agent 1 analysiert den Freitext und extrahiert die harten Daten. Er darf _ausschließlich_ in dem vorgegebenen JSON-Schema antworten:
 
-#### Phase 4: Das Human-in-the-Loop-Prinzip
+```json
+{
+  "customer_name": "Markus Meier",
+  "company": "Meier IT-Services",
+  "order_id": "DE-2026-8831",
+  "order_date": "2026-05-04",
+  "action_required": "REPLACEMENT",
+  "items": [
+    {
+      "article_number": "9942-X",
+      "quantity_damaged": 3,
+      "damage_type": "2x scratched, 1x broken housing"
+    }
+  ]
+}
+```
 
-Der größte Fehler im KI-Hype ist der Glaube an die „Zero-Maintenance-Autonomie“. Bei uns gilt: **Die KI bereitet vor, der Mensch entscheidet.**
+### Phase 2: Die logische Qualitätsprüfung (Agent 2)
 
-Der menschliche Mitarbeiter sieht in seinem Dashboard (z. B. direkt in der Nextcloud oder einer schlanken TUI) eine perfekte Übersicht:
+Um die „Betriebsblindheit“ der KI zu durchbrechen, schalten wir einen zweiten Agenten dazwischen. Dieser erhält _ausschließlich_ das JSON-Ergebnis von Agent 1 (nicht den Originaltext!). Seine Aufgabe ist die **Rückübersetzung** in menschliche Logik:
 
-1. Den chaotischen Originaltext des Kunden.
-2. Die saubere, logische Rückübersetzung von Agent 2.
-3. Das validierte JSON-Datenpaket für das ERP-System.
+> **Rückübersetzung von Agent 2:**
+>
+> _„Kunde Markus Meier (Meier IT-Services) meldet einen Schaden zur Bestellung DE-2026-8831 vom 04.05.2026. Es wird ein kostenfreier Ersatz für insgesamt 3 beschädigte Geräte des Typs 9942-X gefordert. Schadensbild: 2x zerkratzt, 1x Gehäusebruch.“_
+>
+> **Logik-Check:** _Bestelldatum liegt in der Vergangenheit (plausibel). Anzahl der beschädigten Geräte (3) matcht mit den Detailbeschreibungen (2+1=3)._
+>
+> 👉 **Status: Logisch konsistent.**
 
-Der Mitarbeiter muss keine Daten mehr abtippen oder Systeme durchsuchen. Er prüft die Logik mit einem Blick und klickt auf **„Freigeben“**. Erst in diesem Moment wird die API des ERP-Systems gefüttert.
+### Phase 3: Der mathematische Türsteher (Der deterministische Code)
+
+Bevor irgendein KI-Ergebnis ein produktives System berührt, greift die klassische Software-Logik. Mithilfe von Frameworks wie **Pydantic** zwingen wir das System zu einer mathematischen Typ-Prüfung. Stimmt das Datumsformat? Sind alle Pflichtfelder belegt? Wenn das JSON-Schema valide ist, geht es weiter. Wenn nicht, wird das JSON sofort blockiert und intern korrigiert.
+
+### Phase 4: Das Human-in-the-Loop-Prinzip
+
+Der größte Fehler im KI-Hype ist der Glaube an die „Zero-Maintenance-Autonomie“. Bei uns gilt: **Die KI bereitet vor, der Mensch entscheidet.** Der Mitarbeiter sieht im Dashboard den chaotischen Originaltext, die saubere KI-Synthese und klickt mit nur einem Klick auf Freigabe, um das validierte JSON an die ERP-Schnittstelle zu übergeben.
+
+---
+
+## Wer baut die Leitplanken? Rollenverteilung im Autonomous Enterprise
+
+In einem modernen Ökosystem – wie der SAP BTP oder zukünftigen autonomen SAP-Architekturen – wird dieses JSON-Schema zum zentralen Vertrag zwischen KI und Core-System. Doch wer trägt die Verantwortung für dieses Regelwerk?
+
+Zwei neu entstehende Schlüsselrollen teilen sich diese Aufgabe:
+
+- **[Der Intent Architect](/de/blog/sap-business-ai-plattform-deep-dive-intent-architect-teil-1) (Hauptverantwortlich):** Er ist die Evolution des klassischen Solution Architects. Wo er früher starre iDocs oder APIs gemappt hat, gestaltet er heute im Joule Studio 2.0 die logischen Frameworks und „Absichten“ (Intents). Er definiert das JSON-Schema im Code und legt fest, welche harten Kriterien ein Agent erfüllen muss, um geschäftskritische Prozesse anzustoßen.
+
+- **[Der Enterprise Semantic Engineer](/de/blog/sap-business-ai-plattform-deep-dive-enterprise-semantic-engineer-teil-3) (Zulieferer):** Er pflegt das digitale Gedächtnis des Unternehmens – den SAP Knowledge Graph. Er liefert das semantische Baumaterial für das Schema. Er sorgt dafür, dass die Beschreibungen im JSON exakt zu den realen Datenstrukturen und Business-Objekten im ERP-System passen.
+
+Flankiert wird das Ganze vom **AI Governance & Compliance Officer**, der das Schema auf Datenschutz (DSGVO) überwacht, während der **AI Agent Supervisor** als „Fluglotse“ im Dashboard sitzt und eingreift, falls die Validierung des Schemas bei einem unvorhergesehenen Sonderfall fehlschlägt.
 
 ---
 
 ## Das Fazit für die Praxis
 
-Wer KI-Automatisierung ernsthaft betreibt, baut keine magischen Blackboxes. Wir bauen kaskadierende Kontrollsysteme. Durch den Einsatz von strukturierten JSON-Outputs, automatisierten Validierungsschleifen und dem gezielten Einsatz von lokalen, spezialisierten Modellen machen wir das probabilistische Rauschen der KI kontrollierbar. Wir zwingen die Statistik, sich wie Logik zu benehmen.
+Wer KI-Automatisierung ernsthaft betreibt, baut keine magischen Blackboxes. Wir bauen kaskadierende Kontrollsysteme. Das JSON-Schema ist die universelle Schnittstelle, die es unberechenbaren KI-Agenten erlaubt, fehlerfrei mit dem unerbittlich starren Kern eines ERP-Systems zu kommunizieren. Wir zwingen die Statistik, sich wie Logik zu benehmen.
 
 Der Prompt ist erst der Anfang. Bauen wir es richtig.
