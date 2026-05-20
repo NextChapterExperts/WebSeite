@@ -3,10 +3,10 @@ import matter from "gray-matter";
 import { getTranslations } from "next-intl/server";
 import BlogList, { type BlogPost } from "./BlogList";
 import {
+  FEATURED_BLOG_SERIES,
   getAllBlogSlugs,
   parseBlogDateForSort,
   resolveBlogPostFile,
-  SAP_BUSINESS_AI_SERIES_ID,
 } from "@/lib/blogContent";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -43,6 +43,7 @@ export default async function BlogIndexPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: "Blog" });
 
   const slugs = await getAllBlogSlugs();
+  const featuredSeriesIds = new Set<string>(FEATURED_BLOG_SERIES.map((s) => s.id));
 
   const posts = await Promise.all(
     slugs.map(async (slug) => {
@@ -78,20 +79,23 @@ export default async function BlogIndexPage({ params }: Props) {
     }
   }
 
-  const sapAiSorted = validPosts
-    .filter((p) => p.series === SAP_BUSINESS_AI_SERIES_ID)
-    .sort((a, b) => (a.seriesOrder ?? 999) - (b.seriesOrder ?? 999));
+  const featuredSections = FEATURED_BLOG_SERIES.map((seriesConfig) => {
+    const sorted = validPosts
+      .filter((p) => p.series === seriesConfig.id)
+      .sort((a, b) => (a.seriesOrder ?? 999) - (b.seriesOrder ?? 999));
 
-  const sapSeriesTotal = sapAiSorted.length;
+    const total = sorted.length;
 
-  const sapAiPosts: BlogPost[] = sapAiSorted.map((p) => ({
-    ...toBlogListPost(p),
-    seriesPart:
-      p.seriesOrder != null ? { part: p.seriesOrder, total: sapSeriesTotal } : undefined,
-  }));
+    const listPosts: BlogPost[] = sorted.map((p) => ({
+      ...toBlogListPost(p),
+      seriesPart: p.seriesOrder != null ? { part: p.seriesOrder, total } : undefined,
+    }));
+
+    return { seriesConfig, listPosts };
+  }).filter((section) => section.listPosts.length > 0);
 
   const otherPosts: BlogPost[] = validPosts
-    .filter((p) => p.series !== SAP_BUSINESS_AI_SERIES_ID)
+    .filter((p) => p.series == null || !featuredSeriesIds.has(p.series))
     .sort((a, b) => b.sortTime - a.sortTime)
     .map((p) => ({
       ...toBlogListPost(p),
@@ -101,6 +105,8 @@ export default async function BlogIndexPage({ params }: Props) {
           : undefined,
     }));
 
+  const hasFeaturedSections = featuredSections.length > 0;
+
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900">
       <header className="bg-gradient-to-r from-indigo-950 via-slate-900 to-teal-950 text-white py-16 text-center">
@@ -109,21 +115,25 @@ export default async function BlogIndexPage({ params }: Props) {
       </header>
 
       <section className="max-w-6xl mx-auto px-6 py-12">
-        {sapAiPosts.length > 0 ? (
-          <section className="mb-14" aria-labelledby="blog-series-sap-ai-heading">
-            <h2 id="blog-series-sap-ai-heading" className="text-2xl font-bold text-gray-900">
-              {t("indexSeriesSapAiTitle")}
+        {featuredSections.map(({ seriesConfig, listPosts }, index) => (
+          <section
+            key={seriesConfig.id}
+            className={index < featuredSections.length - 1 ? "mb-14" : hasFeaturedSections && otherPosts.length > 0 ? "mb-14" : undefined}
+            aria-labelledby={`blog-series-${seriesConfig.id}-heading`}
+          >
+            <h2 id={`blog-series-${seriesConfig.id}-heading`} className="text-2xl font-bold text-gray-900">
+              {t(seriesConfig.titleKey)}
             </h2>
-            <p className="mt-2 max-w-3xl text-gray-600">{t("indexSeriesSapAiLead")}</p>
+            <p className="mt-2 max-w-3xl text-gray-600">{t(seriesConfig.leadKey)}</p>
             <div className="mt-8">
-              <BlogList posts={sapAiPosts} />
+              <BlogList posts={listPosts} />
             </div>
           </section>
-        ) : null}
+        ))}
 
         {otherPosts.length > 0 ? (
-          <section aria-labelledby={sapAiPosts.length > 0 ? "blog-other-posts-heading" : undefined}>
-            {sapAiPosts.length > 0 ? (
+          <section aria-labelledby={hasFeaturedSections ? "blog-other-posts-heading" : undefined}>
+            {hasFeaturedSections ? (
               <h2 id="blog-other-posts-heading" className="mb-8 text-2xl font-bold text-gray-900">
                 {t("indexOtherPostsTitle")}
               </h2>

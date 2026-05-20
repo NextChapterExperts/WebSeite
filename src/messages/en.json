@@ -104,6 +104,8 @@
     "backToBlog": "Back to blog",
     "articleFallback": "This article is not available in your selected language. The version below is in {lang}.",
     "seriesOverview": "SAP Business AI Platform · series",
+    "seriesOverviewSapAi": "SAP Business AI Platform · series",
+    "seriesOverviewRealPessimism": "Optimistic Real Pessimism · series",
     "seriesNavAria": "Navigation within the blog series",
     "seriesPrev": "Previous",
     "seriesNext": "Next",
@@ -111,12 +113,17 @@
     "seriesLast": "Last article in the series",
     "indexSeriesSapAiTitle": "SAP Business AI Platform · series",
     "indexSeriesSapAiLead": "Seven related articles on roles, architecture, and diagrams around the SAP Business AI Platform.",
+    "indexSeriesRealPessimismTitle": "Optimistic Real Pessimism · A manifesto for AI engineering",
+    "indexSeriesRealPessimismLead": "Seven articles for everyone who wants to build AI automation for real — beyond demo hype and omnipotence fantasies. Five pillars, one manifesto, grounded in practice.",
     "indexOtherPostsTitle": "More articles",
     "seriesPartBadge": "Part {part} of {total}",
     "articleDateLabel": "Published",
     "sapBusinessAiDisclaimerHeading": "Context & disclaimer:",
     "sapBusinessAiDisclaimerBody": "The following analyses and role profiles reflect solely my personal, independent assessment as a former SAP specialist. They are based on SAP’s currently published strategic roadmaps and technology announcements around the SAP Business AI Platform. They represent a forward-looking interpretation of technological evolution in the ERP ecosystem and are not official guidance or job descriptions from SAP SE or partner companies.",
-    "sapBusinessAiDisclaimerFooter": "The views, analyses, and assessments expressed in this article are my personal opinions only and do not reflect the official position of SAP, partner companies, or other organisations."
+    "sapBusinessAiDisclaimerFooter": "The views, analyses, and assessments expressed in this article are my personal opinions only and do not reflect the official position of SAP, partner companies, or other organisations.",
+    "realPessimismDisclaimerHeading": "Context & disclaimer:",
+    "realPessimismDisclaimerBody": "The following articles reflect my personal, independent assessment as a practitioner in AI automation and software architecture. They are intended as field notes and food for thought — not as binding endorsements of specific vendors or products.",
+    "realPessimismDisclaimerFooter": "The views expressed are my personal opinions only and do not represent the official position of employers, partners, or vendors."
   },
   "Contact": {
     "pageTitle": "Contact",

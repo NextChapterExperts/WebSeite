@@ -11,6 +11,31 @@ export type BlogSeriesNavigation = {
 };
 
 export const SAP_BUSINESS_AI_SERIES_ID = "sap-business-ai";
+export const OPTIMISTIC_REAL_PESSIMISM_SERIES_ID = "optimistic-real-pessimism";
+
+/** Reihenfolge und i18n-Keys für eigene Blog-Serien auf der Übersichtsseite. */
+export const FEATURED_BLOG_SERIES = [
+  {
+    id: SAP_BUSINESS_AI_SERIES_ID,
+    titleKey: "indexSeriesSapAiTitle",
+    leadKey: "indexSeriesSapAiLead",
+    overviewKey: "seriesOverviewSapAi",
+    disclaimer: "sapBusinessAi" as const,
+  },
+  {
+    id: OPTIMISTIC_REAL_PESSIMISM_SERIES_ID,
+    titleKey: "indexSeriesRealPessimismTitle",
+    leadKey: "indexSeriesRealPessimismLead",
+    overviewKey: "seriesOverviewRealPessimism",
+    disclaimer: "realPessimism" as const,
+  },
+] as const;
+
+export type FeaturedBlogSeriesDisclaimer = (typeof FEATURED_BLOG_SERIES)[number]["disclaimer"];
+
+export function getFeaturedBlogSeriesConfig(seriesId: string) {
+  return FEATURED_BLOG_SERIES.find((s) => s.id === seriesId);
+}
 
 const GERMAN_MONTHS: Record<string, number> = {
   Januar: 0,
