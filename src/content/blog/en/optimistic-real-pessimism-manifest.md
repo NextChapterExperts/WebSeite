@@ -87,7 +87,7 @@ United in optimistic real pessimism. The prompt is only the beginning. Let's bui
 
 ## Outlook: The roadmap for real implementations
 
-This manifesto is the foundation on which I am building my new business. It is the hard practical checklist for every AI project that aims to run productively and create value.
+These five pillars are not a theoretical construct. They are the distilled result of failed prototypes, overheating GPUs, and agents stuck in infinite loops at three in the morning. Anyone who builds seriously will encounter them.
 
 Over the coming weeks we will analyse each of these five pillars in depth, underpin them mathematically, and equip them with concrete action guides. Here is what the next articles will cover:
 
