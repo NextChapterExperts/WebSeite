@@ -87,7 +87,7 @@ Geeint im optimistischen Realpessimismus. Der Prompt ist erst der Anfang. Bauen 
 
 ## Ausblick: Der Fahrplan für echte Implementierungen
 
-Dieses Manifest ist das Fundament, auf dem ich mein neues Business aufbaue. Es ist die harte Praxis-Checkliste für jedes KI-Projekt, das den Anspruch hat, produktiv und wertschöpfend zu laufen.
+Diese fünf Säulen sind kein theoretisches Konstrukt. Sie sind das destillierte Ergebnis aus gescheiterten Prototypen, brennenden GPUs und Agenten, die nachts um drei in Endlosschleifen geraten sind. Wer ernsthaft baut, wird ihnen begegnen.
 
 In den kommenden Wochen werden wir jede dieser fünf Säulen tiefgreifend analysieren, mathematisch unterfüttern und mit konkreten Handlungsanweisungen versehen. Das erwartet Sie in den nächsten Beiträgen:
 
