@@ -7,7 +7,7 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { getAllBlogSlugs, getBlogSeriesNavigation, resolveBlogPostFile, SAP_BUSINESS_AI_SERIES_ID, countPostsInBlogSeries } from "@/lib/blogContent";
+import { getAllBlogSlugs, getBlogSeriesNavigation, resolveBlogPostFile, countPostsInBlogSeries, getFeaturedBlogSeriesConfig } from "@/lib/blogContent";
 import type { BlogSeriesNavigation } from "@/lib/blogContent";
 
 type Props = {
@@ -101,9 +101,10 @@ export default async function BlogPost({ params }: Props) {
   const { data, content } = matter(fileContents);
 
   const seriesId = data.series != null ? String(data.series) : null;
+  const seriesConfig = seriesId != null ? getFeaturedBlogSeriesConfig(seriesId) : undefined;
   const seriesNav =
     seriesId != null ? await getBlogSeriesNavigation(slug, locale, seriesId) : null;
-  const showSapBusinessAiDisclaimer = seriesId === SAP_BUSINESS_AI_SERIES_ID;
+  const disclaimerKind = seriesConfig?.disclaimer;
 
   const excerptText = data.excerpt != null ? String(data.excerpt).trim() : "";
   const dateText = String(data.date ?? "").trim();
@@ -116,13 +117,32 @@ export default async function BlogPost({ params }: Props) {
     Boolean(seriesId) && Number.isFinite(rawSeriesOrder) && seriesTotal > 0;
 
   const seriesNavLabels = {
-    overview: t("seriesOverview"),
+    overview: seriesConfig != null ? t(seriesConfig.overviewKey) : t("seriesOverviewSapAi"),
     ariaLabel: t("seriesNavAria"),
     prevLabel: t("seriesPrev"),
     nextLabel: t("seriesNext"),
     firstLabel: t("seriesFirst"),
     lastLabel: t("seriesLast"),
   };
+
+  const disclaimerHeadingKey =
+    disclaimerKind === "realPessimism"
+      ? "realPessimismDisclaimerHeading"
+      : disclaimerKind === "sapBusinessAi"
+        ? "sapBusinessAiDisclaimerHeading"
+        : null;
+  const disclaimerBodyKey =
+    disclaimerKind === "realPessimism"
+      ? "realPessimismDisclaimerBody"
+      : disclaimerKind === "sapBusinessAi"
+        ? "sapBusinessAiDisclaimerBody"
+        : null;
+  const disclaimerFooterKey =
+    disclaimerKind === "realPessimism"
+      ? "realPessimismDisclaimerFooter"
+      : disclaimerKind === "sapBusinessAi"
+        ? "sapBusinessAiDisclaimerFooter"
+        : null;
 
   return (
     <main className="p-8 max-w-4xl mx-auto">
@@ -153,10 +173,10 @@ export default async function BlogPost({ params }: Props) {
           {excerptText}
         </p>
       ) : null}
-      {showSapBusinessAiDisclaimer ? (
+      {disclaimerHeadingKey && disclaimerBodyKey ? (
         <aside className="not-prose mb-8 rounded-xl border border-gray-200 bg-gray-50 p-5 text-sm leading-relaxed text-gray-800 shadow-sm">
-          <p className="font-semibold text-gray-900">{t("sapBusinessAiDisclaimerHeading")}</p>
-          <p className="mt-3 italic">{t("sapBusinessAiDisclaimerBody")}</p>
+          <p className="font-semibold text-gray-900">{t(disclaimerHeadingKey)}</p>
+          <p className="mt-3 italic">{t(disclaimerBodyKey)}</p>
         </aside>
       ) : null}
       {seriesNav ? <BlogSeriesNavigationBar nav={seriesNav} {...seriesNavLabels} /> : null}
@@ -230,9 +250,9 @@ export default async function BlogPost({ params }: Props) {
         </ReactMarkdown>
       </article>
       {seriesNav ? <BlogSeriesNavigationBar nav={seriesNav} {...seriesNavLabels} /> : null}
-      {showSapBusinessAiDisclaimer ? (
+      {disclaimerFooterKey ? (
         <p className="not-prose mt-8 border-t border-gray-200 pt-6 text-sm italic leading-relaxed text-gray-600">
-          {t("sapBusinessAiDisclaimerFooter")}
+          {t(disclaimerFooterKey)}
         </p>
       ) : null}
     </main>

@@ -104,6 +104,8 @@
     "backToBlog": "Zurück zum Blog",
     "articleFallback": "Dieser Beitrag ist in Ihrer gewählten Sprache noch nicht verfügbar. Unten sehen Sie die Fassung auf {lang}.",
     "seriesOverview": "SAP Business AI Platform · Serie",
+    "seriesOverviewSapAi": "SAP Business AI Platform · Serie",
+    "seriesOverviewRealPessimism": "Optimistischer Realpessimismus · Serie",
     "seriesNavAria": "Navigation innerhalb der Blogserie",
     "seriesPrev": "Zurück",
     "seriesNext": "Weiter",
@@ -111,12 +113,17 @@
     "seriesLast": "Letzter Teil der Serie",
     "indexSeriesSapAiTitle": "SAP Business AI Platform · Serie",
     "indexSeriesSapAiLead": "Sieben zusammenhängende Artikel zu Rollen, Architektur und Diagrammen rund um die SAP Business AI Platform.",
+    "indexSeriesRealPessimismTitle": "Optimistischer Realpessimismus · Manifest für KI-Engineering",
+    "indexSeriesRealPessimismLead": "Sieben Artikel für alle, die KI-Automatisierung wirklich bauen wollen – jenseits von Demo-Hype und Allmachtsfantasien. Fünf Säulen, ein Manifest, echter Praxisbezug.",
     "indexOtherPostsTitle": "Weitere Beiträge",
     "seriesPartBadge": "Teil {part} von {total}",
     "articleDateLabel": "Erscheinungsdatum",
     "sapBusinessAiDisclaimerHeading": "Einordnung & Disclaimer vorab:",
     "sapBusinessAiDisclaimerBody": "Die nachfolgenden Analysen und Rollenprofile spiegeln ausschließlich meine persönliche, unabhängige Einschätzung als ehemaliger SAP-Spezialist wider. Sie basieren auf den aktuell von SAP veröffentlichten strategischen Roadmaps und Technologie-Ankündigungen rund um die SAP Business AI Platform. Es handelt sich um eine zukunftsgerichtete Interpretation der technologischen Evolution im ERP-Ökosystem und nicht um offizielle Vorgaben oder Stellenausschreibungen der SAP SE oder von Partnerunternehmen.",
-    "sapBusinessAiDisclaimerFooter": "Die in diesem Artikel geäußerten Ansichten, Analysen und Einschätzungen sind ausschließlich meine persönlichen Meinungen und spiegeln nicht die offizielle Position von SAP, Partnerunternehmen oder anderen Organisationen wider."
+    "sapBusinessAiDisclaimerFooter": "Die in diesem Artikel geäußerten Ansichten, Analysen und Einschätzungen sind ausschließlich meine persönlichen Meinungen und spiegeln nicht die offizielle Position von SAP, Partnerunternehmen oder anderen Organisationen wider.",
+    "realPessimismDisclaimerHeading": "Einordnung & Disclaimer vorab:",
+    "realPessimismDisclaimerBody": "Die folgenden Texte spiegeln meine persönliche, unabhängige Einschätzung als Praktiker im Bereich KI-Automatisierung und Software-Architektur wider. Sie sind als Erfahrungsbericht und Denkanstoß gedacht – nicht als verbindliche Technologie- oder Produktempfehlung einzelner Anbieter.",
+    "realPessimismDisclaimerFooter": "Die geäußerten Ansichten sind ausschließlich meine persönlichen Meinungen und stellen keine offizielle Position von Arbeitgebern, Partnern oder Herstellern dar."
   },
   "Contact": {
     "pageTitle": "Kontakt",
