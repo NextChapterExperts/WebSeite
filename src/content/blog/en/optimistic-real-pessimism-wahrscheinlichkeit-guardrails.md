@@ -124,3 +124,11 @@ This is flanked by the **AI Governance & Compliance Officer**, who monitors the 
 Anyone running AI automation seriously does not build magical black boxes. We build cascading control systems. The JSON schema is the universal interface that allows unpredictable AI agents to communicate flawlessly with the uncompromisingly rigid core of an ERP system. We force statistics to behave like logic.
 
 The prompt is only the beginning. Let's build it right.
+
+---
+
+## Prototype in action
+
+I have built a working prototype of the translation-verification-alignment pattern described above. The video below shows the complete pipeline walkthrough live — from unstructured customer input to validated JSON approval in the dashboard:
+
+[![Prototype: Translation-Verification-Alignment pipeline in action](https://img.youtube.com/vi/L6PBZuPcNZE/maxresdefault.jpg)](https://www.youtube.com/watch?v=L6PBZuPcNZE)

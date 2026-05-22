@@ -124,3 +124,11 @@ Flankiert wird das Ganze vom **AI Governance & Compliance Officer**, der das Sch
 Wer KI-Automatisierung ernsthaft betreibt, baut keine magischen Blackboxes. Wir bauen kaskadierende Kontrollsysteme. Das JSON-Schema ist die universelle Schnittstelle, die es unberechenbaren KI-Agenten erlaubt, fehlerfrei mit dem unerbittlich starren Kern eines ERP-Systems zu kommunizieren. Wir zwingen die Statistik, sich wie Logik zu benehmen.
 
 Der Prompt ist erst der Anfang. Bauen wir es richtig.
+
+---
+
+## Prototyp in Aktion
+
+Das beschriebene Translation-Verification-Alignment-Muster habe ich prototypisch umgesetzt. Im folgenden Video seht ihr den kompletten Pipeline-Durchlauf live – vom unstrukturierten Kunden-Input bis zur validierten JSON-Freigabe im Dashboard:
+
+[![Prototyp: Translation-Verification-Alignment-Pipeline in Aktion](https://img.youtube.com/vi/L6PBZuPcNZE/maxresdefault.jpg)](https://www.youtube.com/watch?v=L6PBZuPcNZE)
