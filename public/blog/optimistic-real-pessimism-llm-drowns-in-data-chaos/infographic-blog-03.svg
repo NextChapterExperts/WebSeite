@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 2100" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+    <style>
+      .title { font: 700 42px sans-serif; fill: #f8fafc; }
+      .subtitle { font: 500 20px sans-serif; fill: #94a3b8; }
+      .h2 { font: 700 24px sans-serif; fill: #e2e8f0; }
+      .h3 { font: 600 18px sans-serif; fill: #cbd5e1; }
+      .body { font: 400 16px sans-serif; fill: #cbd5e1; }
+      .small { font: 400 14px sans-serif; fill: #94a3b8; }
+      .label { font: 600 13px sans-serif; fill: #64748b; letter-spacing: 0.08em; }
+      .mono { font: 500 14px monospace; fill: #67e8f9; }
+      .badge { font: 700 12px sans-serif; fill: #fff; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="2100" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="6" fill="url(#accent)"/>
+
+  <text x="60" y="70" class="label">REALPESSIMISMUS - BLOG 03</text>
+  <text x="60" y="120" class="title">Wenn das LLM im Datenmuell ertrinkt</text>
+  <text x="60" y="158" class="subtitle">Kontext-Krise - RAG vs GraphRAG - Smart-Hub Garantiefall</text>
+
+  <g filter="url(#shadow)">
+    <rect x="60" y="190" width="1080" height="88" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="84" y="222" class="h3">Fall: Markus Meier - Meier IT-Services (Gold) - Smart-Hub 9942-X - DE-2026-8831</text>
+    <text x="84" y="252" class="body">Nach Blog 02: strukturiertes JSON OK - Jetzt: Welche Garantie-Dokumente gelten?</text>
+  </g>
+
+  <text x="60" y="330" class="h2">RAG - Open-Book-Klausur</text>
+  <g transform="translate(60,350)">
+    <rect width="330" height="110" rx="10" fill="#172554" stroke="#1d4ed8"/>
+    <text x="20" y="36" class="h3" fill="#93c5fd">1. Retrieval</text>
+    <text x="20" y="62" class="body">Relevante Chunks suchen</text>
+    <text x="20" y="86" class="small">Vektorsuche: semantische Naehe</text>
+
+    <rect x="360" width="330" height="110" rx="10" fill="#172554" stroke="#1d4ed8"/>
+    <text x="380" y="36" class="h3" fill="#93c5fd">2. Augmentation</text>
+    <text x="380" y="62" class="body">Chunks + Frage an LLM</text>
+    <text x="380" y="86" class="small">Kontext in den Prompt</text>
+
+    <rect x="720" width="360" height="110" rx="10" fill="#172554" stroke="#1d4ed8"/>
+    <text x="740" y="36" class="h3" fill="#93c5fd">3. Generation</text>
+    <text x="740" y="62" class="body">Antwort aus Fakten</text>
+    <text x="740" y="86" class="small">Nur so gut wie der Kontext</text>
+
+    <path d="M350 55 H360 M690 55 H720" stroke="#3b82f6" stroke-width="2"/>
+  </g>
+
+  <text x="60" y="510" class="h2">Drei Dokumente im Speicher</text>
+  <g transform="translate(60,530)">
+    <rect width="330" height="120" rx="10" fill="#450a0a" stroke="#ef4444"/>
+    <text x="20" y="34" class="badge" fill="#fecaca">A - 2023 - veraltet</text>
+    <text x="20" y="62" class="body">14 Tage Rueckgabe</text>
+    <text x="20" y="86" class="body">Kaeufer traegt Kosten</text>
+    <text x="20" y="108" class="small">Langes Dokument - Vektor bevorzugt</text>
+
+    <rect x="360" width="330" height="120" rx="10" fill="#14532d" stroke="#22c55e"/>
+    <text x="380" y="34" class="badge" fill="#bbf7d0">B - 2025 - Gold-SLA</text>
+    <text x="380" y="62" class="body">30 Tage Garantie</text>
+    <text x="380" y="86" class="body">Express-Ersatz vor Retoure</text>
+    <text x="380" y="108" class="small">Gilt fuer Gold-Kunden</text>
+
+    <rect x="720" width="360" height="120" rx="10" fill="#713f12" stroke="#f59e0b"/>
+    <text x="740" y="34" class="badge" fill="#fde68a">C - 2026 - Memo</text>
+    <text x="740" y="62" class="body">Smart-Hub 9942-X</text>
+    <text x="740" y="86" class="body">Freigabe Regionalleiter noetig</text>
+    <text x="740" y="108" class="small">Chip-Engpass - artikel-spezifisch</text>
+  </g>
+
+  <text x="60" y="710" class="h2">Zwei Szenarien</text>
+
+  <g transform="translate(60,730)" filter="url(#shadow)">
+    <rect width="520" height="340" rx="14" fill="#1c1917" stroke="#ef4444" stroke-width="2"/>
+    <rect x="0" y="0" width="520" height="44" rx="14" fill="#7f1d1d"/>
+    <rect x="0" y="22" width="520" height="22" fill="#7f1d1d"/>
+    <text x="20" y="30" class="h3" fill="#fecaca">Szenario 1 - Naives RAG</text>
+    <text x="20" y="78" class="body">1. Vektorsuche waehlt Dokument A (lang, alt)</text>
+    <text x="20" y="108" class="body">2. LLM mischt 14 vs. 30 Tage</text>
+    <text x="20" y="138" class="body">3. Falsche Kundenmail</text>
+    <text x="20" y="168" class="body">4. Ersatz ohne Freigabe - Compliance-Bruch</text>
+    <rect x="20" y="200" width="480" height="110" rx="8" fill="#292524" stroke="#44403c"/>
+    <text x="36" y="228" class="small">Lost-in-the-Middle - Widersprueche - kein Graph</text>
+    <text x="36" y="256" class="mono">Semantik schlaegt Struktur</text>
+    <text x="36" y="284" class="body" fill="#fca5a5">Ergebnis: LLM raet</text>
+  </g>
+
+  <g transform="translate(620,730)" filter="url(#shadow)">
+    <rect width="520" height="340" rx="14" fill="#0c4a6e" stroke="#06b6d4" stroke-width="2"/>
+    <rect x="0" y="0" width="520" height="44" rx="14" fill="#155e75"/>
+    <rect x="0" y="22" width="520" height="22" fill="#155e75"/>
+    <text x="20" y="30" class="h3" fill="#a5f3fc">Szenario 2 - GraphRAG</text>
+    <text x="20" y="78" class="body">1. Filter: Gold + active - A raus</text>
+    <text x="20" y="108" class="body">2. Graph: Artikel 9942-X - Memo C</text>
+    <text x="20" y="138" class="body">3. Re-Ranking: C an Position 1</text>
+    <text x="20" y="168" class="body">4. Korrekte Mail + Freigabe-Task</text>
+    <circle cx="120" cy="250" r="28" fill="#0369a1" stroke="#22d3ee"/>
+    <text x="120" y="255" text-anchor="middle" class="small" fill="#e0f2fe">Meier</text>
+    <circle cx="260" cy="230" r="28" fill="#0369a1" stroke="#22d3ee"/>
+    <text x="260" y="235" text-anchor="middle" class="small" fill="#e0f2fe">Gold</text>
+    <circle cx="400" cy="250" r="28" fill="#0369a1" stroke="#22d3ee"/>
+    <text x="400" y="248" text-anchor="middle" class="small" fill="#e0f2fe">SLA</text>
+    <circle cx="320" cy="290" r="28" fill="#0e7490" stroke="#f59e0b"/>
+    <text x="320" y="288" text-anchor="middle" class="small" fill="#fef3c7">9942-X</text>
+    <line x1="145" y1="240" x2="235" y2="235" stroke="#22d3ee" stroke-width="2"/>
+    <line x1="285" y1="245" x2="375" y2="248" stroke="#22d3ee" stroke-width="2"/>
+    <line x1="280" y1="255" x2="305" y2="268" stroke="#f59e0b" stroke-width="2"/>
+  </g>
+
+  <text x="60" y="1120" class="h2">GraphRAG = Vektoren + harte Beziehungen</text>
+  <text x="60" y="1152" class="body">Kunde - Firma - SLA - Express-Austausch - Artikel - Memo - Freigabe</text>
+
+  <text x="60" y="1210" class="h2">AI-OS - heute vs. Roadmap</text>
+  <g transform="translate(60,1230)" filter="url(#shadow)">
+    <rect width="1080" height="320" rx="12" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="1080" height="44" fill="#334155" rx="12"/>
+    <rect x="0" y="22" width="1080" height="22" fill="#334155"/>
+    <text x="24" y="30" class="h3">Faehigkeit</text>
+    <text x="420" y="30" class="h3">AI-OS heute</text>
+    <text x="780" y="30" class="h3">Roadmap</text>
+    <line x1="24" y1="56" x2="1056" y2="56" stroke="#475569"/>
+    <text x="24" y="84" class="body">Vektorsuche L1</text>
+    <text x="420" y="84" class="body" fill="#86efac">Qdrant, Ingest, Cache</text>
+    <text x="780" y="84" class="body">Metadata-Filter, Re-Ranker</text>
+    <text x="24" y="124" class="body">Recherche-Pipeline</text>
+    <text x="420" y="124" class="body" fill="#86efac">Cache - Qdrant - SearXNG - LLM</text>
+    <text x="780" y="124" class="body">-</text>
+    <text x="24" y="164" class="body">Knowledge Graph G0</text>
+    <text x="420" y="164" class="body" fill="#86efac">kg_nodes / kg_edges</text>
+    <text x="780" y="164" class="body">Graph-UI</text>
+    <text x="24" y="204" class="body">GraphRAG in Pipeline</text>
+    <text x="420" y="204" class="body" fill="#fca5a5">Speicher OK - Laufzeit fehlt</text>
+    <text x="780" y="204" class="body" fill="#fde68a">P1 - naechster Schritt</text>
+    <text x="24" y="244" class="body">Branchenvergleich</text>
+    <text x="420" y="244" class="body">SAP Knowledge Graph / Joule</text>
+    <text x="780" y="244" class="body">AI-OS Graph fuer Content</text>
+    <text x="24" y="284" class="body">Serie</text>
+    <text x="420" y="284" class="body">Blog 02 JSON - Blog 03 Kontext - Blog 04 Ausfuehrung</text>
+  </g>
+
+  <g transform="translate(60,1580)">
+    <rect width="1080" height="120" rx="12" fill="#0f172a" stroke="#06b6d4"/>
+    <text x="24" y="42" class="h3" fill="#67e8f9">Fazit</text>
+    <text x="24" y="72" class="body">Ein LLM ist nur so klug wie sein Kontext. GraphRAG + Filter zwingen Probabilistik in Bahnen.</text>
+    <text x="24" y="98" class="body">AI-OS: Qdrant L1 + KG G0 live - GraphRAG im Laufzeitpfad schliesst die Luecke.</text>
+  </g>
+
+  <text x="60" y="1750" class="label">AI-OS - REALPESSIMISMUS - TEIL 3 VON 8</text>
+
+  <g transform="translate(60,1810)">
+    <rect width="1080" height="56" rx="8" fill="#1e293b"/>
+    <text x="20" y="35" class="small">02 TVA</text>
+    <text x="130" y="35" class="small" fill="#22d3ee">-&gt; 03 RAG</text>
+    <text x="240" y="35" class="small">-&gt; 04 Supervisor</text>
+    <text x="400" y="35" class="small">-&gt; 05 Privacy</text>
+    <text x="540" y="35" class="small">-&gt; 06 LLMOps</text>
+    <text x="680" y="35" class="small">-&gt; 07 Governance</text>
+    <text x="860" y="35" class="small">-&gt; 08 Fazit</text>
+  </g>
+</svg>
