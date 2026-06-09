@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -72,12 +73,12 @@ export default async function ImpressumPage({ params }: Props) {
           <div>
             <h2 className="text-2xl font-semibold mt-6 mb-2">{t("privacyLinkTitle")}</h2>
             <p>{t("privacyLinkBody")}</p>
-            <a
+            <Link
               href="/datenschutz"
               className="mt-2 inline-block text-teal-600 hover:underline font-medium"
             >
               {t("privacyLinkLabel")} →
-            </a>
+            </Link>
           </div>
         </div>
       </section>
