@@ -181,9 +181,16 @@
     "linksTitle": "Liability for links",
     "linksBody": "This site contains links to third-party websites over whose content I have no control; I cannot accept liability for that external content.",
     "copyrightTitle": "Copyright",
-    "copyrightBody": "Content and works created by me on these pages are subject to German copyright law. Reproduction, editing, distribution or any other use requires my written consent.",
+    "copyrightBody": "The content and works on these pages created by me are subject to German copyright law. Reproduction, editing, distribution and any other use outside the limits of copyright law require my written consent. © 2024–2026 Peter Alexander / Next Chapter Experts. All rights reserved.",
     "disputeTitle": "Dispute resolution",
-    "disputeBody": "The European Commission provides a platform for online dispute resolution: https://ec.europa.eu/consumers/odr. I am neither obliged nor willing to participate in dispute resolution before a consumer arbitration board."
+    "disputeBody": "The European Commission provides a platform for online dispute resolution (ODR):\nhttps://ec.europa.eu/consumers/odr\n\nI am neither obliged nor willing to participate in dispute resolution before a consumer arbitration board.",
+    "mstvTitle": "Person responsible for editorial content (§ 55 para. 2 MStV, Germany)",
+    "mstvBody": "Peter Alexander\nMadonnenbergweg 17\n69198 Schriesheim, Germany\nE-mail: peter.alexander@nextchapterexperts.de",
+    "aiActTitle": "Note on the use of AI systems (EU AI Act)",
+    "aiActBody": "Parts of the texts and content published on this website — in particular blog articles — may have been created, translated or further developed with the assistance of AI systems (large language models). All published content is editorially reviewed and approved. This notice is provided in accordance with the transparency obligations under Art. 50 of Regulation (EU) 2024/1689 (EU AI Act).",
+    "privacyLinkTitle": "Data protection",
+    "privacyLinkBody": "Information on the processing of personal data can be found in our Privacy Policy.",
+    "privacyLinkLabel": "View Privacy Policy"
   },
   "Privacy": {
     "pageTitle": "Privacy policy",
