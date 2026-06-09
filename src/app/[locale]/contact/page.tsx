@@ -8,7 +8,7 @@ export default function ContactPage() {
   const t = useTranslations("Contact");
   const subject = encodeURIComponent(t("mailSubject"));
   const body = encodeURIComponent(t("mailBody"));
-  const mailto = `mailto:kontakt@nextchapterexperts.de?subject=${subject}&body=${body}`;
+  const mailto = `mailto:peter.alexander@nextchapterexperts.de?subject=${subject}&body=${body}`;
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900">
@@ -45,7 +45,7 @@ export default function ContactPage() {
 
             <p className="text-sm text-gray-500 mt-2">
               {t("emailFallback")}{" "}
-              <span className="underline">kontakt@nextchapterexperts.de</span>.
+              <span className="underline">peter.alexander@nextchapterexperts.de</span>.
             </p>
           </div>
         </div>
