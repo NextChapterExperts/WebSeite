@@ -1,3 +1,4 @@
+import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -52,6 +53,32 @@ export default async function ImpressumPage({ params }: Props) {
           <div>
             <h2 className="text-2xl font-semibold mt-6 mb-2">{t("disputeTitle")}</h2>
             <p className="whitespace-pre-line">{t("disputeBody")}</p>
+            <a
+              href="https://ec.europa.eu/consumers/odr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-teal-600 hover:underline text-sm"
+            >
+              ec.europa.eu/consumers/odr ↗
+            </a>
+          </div>
+          <div>
+            <h2 className="text-2xl font-semibold mt-6 mb-2">{t("mstvTitle")}</h2>
+            <p className="whitespace-pre-line">{t("mstvBody")}</p>
+          </div>
+          <div>
+            <h2 className="text-2xl font-semibold mt-6 mb-2">{t("aiActTitle")}</h2>
+            <p>{t("aiActBody")}</p>
+          </div>
+          <div>
+            <h2 className="text-2xl font-semibold mt-6 mb-2">{t("privacyLinkTitle")}</h2>
+            <p>{t("privacyLinkBody")}</p>
+            <Link
+              href="/datenschutz"
+              className="mt-2 inline-block text-teal-600 hover:underline font-medium"
+            >
+              {t("privacyLinkLabel")} →
+            </Link>
           </div>
         </div>
       </section>
