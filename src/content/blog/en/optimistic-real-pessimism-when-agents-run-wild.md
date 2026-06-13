@@ -1,62 +1,62 @@
 ---
 title: "When Agents Run Wild – State, Memory and Cost Kill-Switches"
 date: "June 8, 2026"
-excerpt: "Blog 03 hat gezeigt, wie ein KI-Agent die richtigen Informationen findet: Durch gezielte Vorauswahl und ein Beziehungsnetz zwischen Geschäftsobjekten bekommt das Modell genau das, was für diesen Kunden und diesen Fall…"
+excerpt: "Blog 03 demonstrated how an AI agent finds the right information: Through targeted pre-selection and a network of relationships between business objects, the model receives exactly what applies to a specific customer…"
 cover: "/blog/optimistic-real-pessimism-when-agents-run-wild/Bild-Blog-04.png"
 series: optimistic-real-pessimism
 seriesOrder: 4
 ---
 
-Blog 03 hat gezeigt, wie ein KI-Agent die richtigen Informationen findet: Durch gezielte Vorauswahl und ein Beziehungsnetz zwischen Geschäftsobjekten bekommt das Modell genau das, was für diesen Kunden und diesen Fall gilt. Der nächste Schritt ist die eigentliche Ausführung — und genau hier entsteht eine neue Klasse von Problemen.
+Blog 03 demonstrated how an AI agent finds the right information: Through targeted pre-selection and a network of relationships between business objects, the model receives exactly what applies to a specific customer and case. The next step is the actual execution — and this is precisely where a new class of problems arises.
 
-## Das Problem: Wenn ein Agent nicht aufhören kann
+## The Problem: When an Agent Can't Stop
 
-Autonome KI-Agenten arbeiten in einem Zyklus: Sie formulieren einen Plan, führen eine Aktion aus, beobachten das Ergebnis und entscheiden, was als Nächstes zu tun ist. Das funktioniert gut, solange jede Aktion zu einem Fortschritt führt.
+Autonomous AI agents operate in a cycle: they formulate a plan, execute an action, observe the result, and decide what to do next. This works well as long as each action leads to progress.
 
-> _„Korrekte Informationen und ein validiertes Schema sind die Voraussetzung — nicht die Garantie für fehlerfreie Ausführung."_
+> _„Correct information and a validated schema are prerequisites — not a guarantee for error-free execution."_
 
-Das Problem entsteht, wenn eine Aktion wiederholt scheitert und der Agent das Scheitern falsch interpretiert. Ohne klare Abbruchbedingungen versucht er dieselbe Aktion immer wieder — weil er nicht unterscheiden kann, ob ein Fehler vorübergehend oder durch eine Geschäftsregel bedingt ist.
+The problem arises when an action repeatedly fails and the agent misinterprets the failure. Without clear termination conditions, it attempts the same action again and again — because it cannot distinguish whether an error is temporary or caused by a business rule.
 
-## Das Beispiel: Der Garantiefall Markus Meier
+## The Example: The Markus Meier Warranty Case
 
-Blog 03 hat den Fall vollständig vorbereitet: **Markus Meier** (Meier IT-Services, Gold-Kunde) hat drei defekte Smart-Hubs (9942-X, Bestellung DE-2026-8831) reklamiert. Der Agent kennt die korrekte Antwort: Express-Austausch gemäß Gold-Vertrag — aber erst nach Freigabe des Regionalleiters, weil ein internes Memo für diesen Artikel einen Chip-Engpass meldet.
+Blog 03 fully prepared the case: **Markus Meier** (Meier IT-Services, Gold Customer) has claimed three defective Smart Hubs (9942-X, Order DE-2026-8831). The agent knows the correct answer: express replacement according to the Gold contract — but only after approval from the regional manager, because an internal memo reports a chip shortage for this item.
 
-Der Agent soll nun die Ersatzlieferung im ERP-System anlegen. Dabei scheitert er — und das auf zwei typische Arten:
+The agent is now supposed to create the replacement delivery in the ERP system. However, it fails — in two typical ways:
 
-**Fall 1 — Wiederholungsschleife:** Der Agent versucht, den Lieferauftrag anzulegen. Das ERP-System lehnt den Vorgang ab, weil die Freigabe des Regionalleiters noch aussteht. Der Agent wertet das als vorübergehenden Fehler und versucht es erneut. Dann noch einmal. In zwei Minuten stellt er vierzig identische Anfragen. Das ERP-System bleibt gesperrt, der Kunde erhält kein Update, der Regionalleiter wird nicht benachrichtigt.
+**Case 1 — Repetition Loop:** The agent attempts to create the delivery order. The ERP system rejects the process because the regional manager's approval is still pending. The agent interprets this as a temporary error and tries again. Then again. In two minutes, it submits forty identical requests. The ERP system remains blocked, the customer receives no update, and the regional manager is not notified.
 
-**Fall 2 — Falsche Reihenfolge:** Der Agent bucht die Rücksendung, bevor die Ersatzlieferung freigegeben ist. Jeder Folgeschritt scheitert, weil die Voraussetzungen fehlen. Der Prozess dreht sich im Kreis.
+**Case 2 — Incorrect Order:** The agent books the return shipment before the replacement delivery is approved. Every subsequent step fails because the prerequisites are missing. The process goes in circles.
 
-In beiden Fällen entsteht kein sichtbarer Systemfehler — der Agent arbeitet, produziert aber keinen Nutzen.
+In both cases, no visible system error occurs — the agent is working, but producing no value.
 
-## Die Lösung: Vier Kontrollmechanismen
+## The Solution: Four Control Mechanisms
 
-Damit ein Agent sicher in der Ausführung arbeitet, braucht er vier ergänzende Mechanismen:
+For an agent to operate safely in execution, it needs four complementary mechanisms:
 
-**Zustandsspeicher:** Der Agent protokolliert jeden Versuch mit seinem Ergebnis. Er weiß nach dem zweiten Fehlschlag, dass er bereits zweimal versucht hat — und dass derselbe Fehler weiter besteht.
+**State Memory:** The agent logs every attempt with its result. After the second failure, it knows that it has already tried twice — and that the same error persists.
 
-**Versuchslimit:** Eine klare Obergrenze legt fest, wie oft derselbe Schritt wiederholt werden darf. Nach drei Fehlversuchen stoppt der Agent und wartet auf ein Signal von außen.
+**Attempt Limit:** A clear upper limit defines how often the same step may be repeated. After three failed attempts, the agent stops and waits for an external signal.
 
-**Kostenlimit:** Unabhängig vom Versuchslimit gibt es ein maximales Budget pro Vorgang. Wenn ein Verarbeitungsschritt mehr Ressourcen verbraucht als vorgesehen, wird der Prozess angehalten.
+**Cost Limit:** Independent of the attempt limit, there is a maximum budget per operation. If a processing step consumes more resources than intended, the process is halted.
 
-**Protokollierung:** Jeder Schritt wird mit Entscheidung, Aktion und Ergebnis aufgezeichnet — vollständig nachvollziehbar für interne Prüfzwecke.
+**Logging:** Every step is recorded with its decision, action, and result — fully traceable for internal audit purposes.
 
-## Praxis: Mit und ohne Kontrolle
+## Practice: With and Without Control
 
-**Ohne Kontrolle:** Der Agent stellt vierzig Anfragen an das ERP-System in zwei Minuten. Die Kosten steigen. Die Anfragen werden alle abgelehnt. Der Kunde erhält keine Rückmeldung. Der Regionalleiter weiß nicht, dass seine Freigabe benötigt wird.
+**Without Control:** The agent submits forty requests to the ERP system in two minutes. Costs increase. All requests are rejected. The customer receives no feedback. The regional manager does not know that their approval is needed.
 
-**Mit Kontrolle:** Der Agent stellt die erste Anfrage — sie wird abgelehnt. Er protokolliert das Ergebnis und versucht es ein zweites Mal, um vorübergehende Fehler auszuschließen. Die zweite Anfrage wird ebenfalls abgelehnt. Der Agent erkennt, dass eine Geschäftsregel greift, stoppt den Prozess und legt eine Aufgabe für den Regionalleiter an: *„Ersatzlieferung für Bestellung DE-2026-8831 benötigt Ihre Freigabe — Artikel 9942-X, Chip-Engpass."*
+**With Control:** The agent submits the first request — it is rejected. It logs the result and tries a second time to rule out temporary errors. The second request is also rejected. The agent recognizes that a business rule is in effect, stops the process, and creates a task for the regional manager: *„Replacement delivery for order DE-2026-8831 requires your approval — item 9942-X, chip shortage."*
 
-Der Prozess ist geordnet beendet. Der Mensch greift genau an der Stelle ein, an der eine Geschäftsentscheidung erforderlich ist.
+The process is orderly concluded. Human intervention occurs precisely where a business decision is required.
 
-## Einordnung: Autonomie und Verantwortung
+## Classification: Autonomy and Responsibility
 
-Die beschriebenen Mechanismen sind kein technisches Detail — sie sind die Voraussetzung dafür, dass ein Unternehmen einem KI-Agenten überhaupt Ausführungsrechte geben kann. Ohne Versuchslimit, Kostenkontrolle und Eskalationsweg ist ein autonomer Agent ein unkontrolliertes Risiko, unabhängig davon, wie gut er den Kontext versteht.
+The described mechanisms are not a technical detail — they are the prerequisite for a company to even grant execution rights to an AI agent. Without an attempt limit, cost control, and an escalation path, an autonomous agent is an uncontrolled risk, regardless of how well it understands the context.
 
-Blog 05 beschäftigt sich mit der nächsten Frage: Während der Agent all diese Schritte ausführt — welche Daten verlassen dabei das Unternehmen?
+Blog 05 will address the next question: While the agent performs all these steps — what data leaves the company?
 
-## Fazit
+## Conclusion
 
-Autonomie ohne Aufsicht ist kein Fortschritt. Ein KI-Agent, der nicht weiß, wann er aufhören soll, verursacht mehr Aufwand als er spart. Zustandsspeicher, Versuchslimit, Kostenkontrolle und Protokollierung sind die vier Mechanismen, die einen ausführenden Agenten beherrschbar machen.
+Autonomy without oversight is not progress. An AI agent that doesn't know when to stop causes more effort than it saves. State memory, attempt limit, cost control, and logging are the four mechanisms that make an executing agent manageable.
 
-Der Prompt ist erst der Anfang. **Kontrollmechanismen machen den Unterschied zwischen Demonstration und Produktionsbetrieb.**
+The prompt is just the beginning. **Control mechanisms make the difference between demonstration and production operation.**
